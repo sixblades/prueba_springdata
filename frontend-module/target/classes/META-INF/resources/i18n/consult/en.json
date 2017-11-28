@@ -1,0 +1,30 @@
+{
+    "consult": {
+        "seleccion": "Employee selection:",
+		"seleccionInfo": "Select the employee you want to consult its evaluations",
+        "empleados": "Employees:",
+		"evaluadores": "Evaluators:",
+		"evaluation":{
+						"auto": "Self Evaluation",
+						"eval": "Evaluation",
+						"final": "Final Evaluation"
+					},
+		"cabecera": {
+						"fecha": "Evaluation date",
+						"nomEmp": "Employee's name",
+						"nomEval": "Evaluator's name",
+						"tipoeval": "Evaluation type",
+						"modificar": "Modify"
+					},
+		"modal" : {
+			"ok" : "Accept",
+			"ok.title" : "Success",
+			"error.title" : "Error"
+		}
+	},
+	"save.evaluation.finalevaluation.exists": "It's not possible to modify the evaluation. There is a final evaluation for this employee in the present year.",
+   "guardarCorrecto": "Saved successfully",
+   "guardarIncorrecto": "You must answer all the questions.",
+   "guardarCorrectoNoNota": "Saved successfully, though it was impossible to calculate the evaluation result.",
+   "guardarFalla": "And error has occured, please try again later or contact Admin"
+}

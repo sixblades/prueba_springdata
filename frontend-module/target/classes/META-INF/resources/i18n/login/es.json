@@ -1,0 +1,21 @@
+{
+    "login": {
+        "title": "Por favor introduce tus datos para entrar en la aplicación:",
+        "select": "Selecciona la Organización a la que perteneces:",
+        "form": {
+            "username.placeholder": "Usuario",
+            "password": "Password",
+            "password.placeholder": "Contraseña",
+            "rememberme": "Recuerdame",
+            "button": "Entrar"
+        },
+        "messages": {
+            "error": {
+                "form" : "Por favor, rellena todos los campos del formulario",
+                "authentication": "Error Autenticación! Por favor, comprueba los datos e inténtalo de nuevo.",
+                "title": "Error",
+                "ok" : "Aceptar"
+            }
+        }
+    }
+}

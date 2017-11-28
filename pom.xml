@@ -26,4 +26,7 @@
   </build>
   <description>Prueba de proyecto con maven</description>
   <name>Prueba</name>
+  <modules>
+		<module>frontend-module</module>
+  </modules>
 </project>

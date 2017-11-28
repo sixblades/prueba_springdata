@@ -1,0 +1,11 @@
+{
+    "information.maps.title" : "Mapas de Carrera",
+    "information.maps.subtitle" : "Selecciona el mapa de carrera que deseas consultar",
+    "information.maps.combo" : "Selecciona un mapa de carrera",
+    "information.maps.business.VASS" : "Mapa de Carrera Negocio VASS",
+    "information.maps.staff.VASS" : "Mapa de Carrera Staff VASS",
+    "information.maps.business.VASSIT" : "Mapa de Carrera Negocio VASSIT",
+    "information.maps.business.LATAM" : "Mapa de Carrera Negocio LATAM",
+    "information.maps.business.VASSDigital" : "Mapa de Carrera Negocio VASSDigital",
+    "information.maps.business.Serbatic" : "Mapa de Carrera Negocio Serbatic"
+}

@@ -1,0 +1,21 @@
+{
+    "roles": {
+        "seleccion": "Selección de Empleado:",
+		"seleccionInfo": "Selecciona el empleado sobre el que deseas consultar sus roles",
+        "empleados": "Empleados:",
+		"cabecera": {
+						"nombre": "Nombre de empleado",
+						"rol": "Rol",
+						"modificar": "Modificar"
+					},
+		"buttonGuardar": "Guardar",
+		"guardarCorrecto": "Rol guardado correctamente",
+		"guardarIncorrecto": "Debes seleccionar todos los campos",
+		"buttonCerrar": "Cerrar"
+	},
+	"ROLE_USER": "Empleado",
+	"ROLE_RRHH": "RR.HH.",
+	"ROLE_GERENTE": "Manager",
+	"ROLE_DIRECTOR": "Director",
+	"ROLE_DIRECTORG": "Director General"
+}

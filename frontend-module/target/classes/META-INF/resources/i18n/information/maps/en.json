@@ -1,0 +1,11 @@
+{
+    "information.maps.title" : "Career Maps",
+    "information.maps.subtitle" : "Select the Career Map that you would like to consult",
+    "information.maps.combo" : "Select a Career Map",
+    "information.maps.business.VASS" : "VASS Business Career Map",
+    "information.maps.staff.VASS" : "VASS Staff Career Map",
+    "information.maps.business.VASSIT" : "VASSIT Business Career Map",
+    "information.maps.business.LATAM" : "VASS LATAM Business Career Map",
+    "information.maps.business.VASSDigital" : "VASSDigital Business Career Map",
+    "information.maps.business.Serbatic" : "Serbatic Business Career Map"
+}

@@ -1,0 +1,27 @@
+{
+    "health": {
+        "title": "Chequeo Salus",
+        "refresh.button": "Actualizar",
+        "stacktrace": "Stacktrace",        
+        "details": {
+            "details": "Detalles",
+            "properties": "Propiedades",
+            "name": "Nombre",
+            "value": "Valor",
+            "error": "Error"
+        },
+        "indicator": {
+            "diskSpace": "Espacio de disco",
+            "mail": "Email",
+            "db": "Base de datos"
+        },
+        "table": {
+            "service": "Nombre Servicio",
+            "status": "Estado"
+        },
+        "status": {
+            "UP": "OK",
+            "DOWN": "KO"
+        }
+    }
+}

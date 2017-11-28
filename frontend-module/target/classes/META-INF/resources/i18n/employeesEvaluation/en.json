@@ -1,0 +1,15 @@
+{
+    "employeesEvaluation.layoutTitle" : "Consult evaluations by employee",
+    "employeesEvaluation.layoutSubtitle" : "Select a direction and/or an area to know which employees have done the self assessment on the selected year",
+    "employeesEvaluation.direction.combo" : "Select a direction",
+    "employeesEvaluation.area.combo" : "Select an area",
+    "employeesEvaluation.year.combo" : "Select a year",
+    "employeesEvaluation.cabecera.nomEmp" : "Employee's Name",
+    "employeesEvaluation.cabecera.self" : "Self Assessment",
+    "employeesEvaluation.cabecera.final" : "Final Evaluation",
+    "employeesEvaluation.tabla.si" : "Yes",
+    "employeesEvaluation.tabla.no" : "No",
+    "employeesEvaluation.modal.error" : "There was an error while processing your request",
+    "employeesEvaluation.modal.error.title" : "Error",
+    "employeesEvaluation.modal.ok" : "Accept"
+}

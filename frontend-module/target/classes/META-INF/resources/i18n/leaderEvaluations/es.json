@@ -1,0 +1,15 @@
+{
+    "leadersEvaluation.title" : "Consulta Evaluaciones por evaluador",
+    "leadersEvaluation.layoutTitle" : "Consulta Evaluaciones por evaluador",
+    "leadersEvaluation.layoutSubtitle" : "Selecciona el evaluador y el año del que desees consultar sus evaluaciones",
+    "leadersEvaluation.defaultCombo" : "Selecciona un evaluador",
+    "leadersEvaluation.defaultCombo.year" : "Selecciona un año",
+    "leadersEvaluation.cabecera.nomEmp" : "Nombre Empleado",
+    "leadersEvaluation.cabecera.self" : "Autoevaluación",
+    "leadersEvaluation.cabecera.final" : "Evaluación Final",
+    "leadersEvaluation.tabla.si" : "Sí",
+    "leadersEvaluation.tabla.no" : "No",
+    "leadersEvaluation.modal.error" : "Ha ocurrido un error procesando tu petición",
+    "leadersEvaluation.modal.error.title" : "Error",
+    "leadersEvaluation.modal.ok" : "Aceptar"
+}

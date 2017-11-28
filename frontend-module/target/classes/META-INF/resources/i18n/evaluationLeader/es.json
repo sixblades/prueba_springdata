@@ -1,0 +1,56 @@
+{
+    "eval" : {
+        "leader": {
+            "alta" : {
+                "evaluacion": "Alta Evaluación:",
+                "subtitulo": "Selecciona el empleado al que desea realizar la evaluación Continua:",
+                "empleados": "Empleados:",
+                "mandos": "Mandos:",
+                "complete": "Completa el cuestionario que aparecerá a continuación y guárdalo una vez finalizado.",
+                "comentarios": "Comentarios",
+                "observaciones": "Si lo deseas puedes añadir algún comentario sobre la Evaluación:"
+            }
+        }
+    },
+    "Preg1": "1. Expertise Técnico Profesional",
+    "Preg2": "2. Resolución",
+    "Preg3": "3. Capacidad de Programar y Priorizar",
+    "Preg4": "4. Desarrollo de Habilidades Intrapersonales",
+    "Preg5": "5. Comunicación y Negociación",
+    "Preg6": "6. Automotivación",
+    "Preg7": "7. Colaboración y Compromiso",
+    "Preg8": "8. Confianza",
+    "Preg9": "9. Creatividad e Innovación",
+    "Preg10": "10. Proactividad e Iniciativa",
+    "Preg11": "11. Adaptación al Cambio",
+    "Preg12": "12. Mejora Continua",
+    "Preg13": "13. Enfoque al Cliente",
+    "Preg14": "14. Enfoque a la Calidad",
+    "Preg15": "15. Enfoque a Resultados",
+    "Preg16": "16. Toma de Decisiones",
+    "Preg17": "17. Gestión del Cambio",
+    "Preg18": "18. Equipazgo",
+    "Preg19": "19. Motivación",
+    "Preg20": "20. Desarrollo de Habilidades Interpersonales",
+    "Preg21": "21. Sostenibilidad",
+    "Preg22": "22. Visión Estratégica",
+    "Preg23": "23. Empowerment & Delegación",
+    "Preg24": "24. Excelencia",
+    "Preg25": "25. Orgullo de Pertenencia",
+    "Estado1": "Muy por debajo de lo esperado",
+    "Estado2": "Por debajo o peor de lo esperado",
+    "Estado3": "Lo esperado",
+    "Estado4": "Por encima o mejor de lo esperado",
+    "Estado5": "Muy por encima de lo esperado",
+    "Estado6": "No se Observa",
+    "answers": {
+        "title": "Cuestionario",
+        "field": "Preguntas",
+        "form": {
+            "button": {
+                "buttonGuardar": "Guardar",
+                "buttonActualizar": "Actualizar"
+                }            
+        }
+    }
+}

@@ -1,0 +1,205 @@
+{
+    "evaluation": {
+        "empleado": "Employee: ",
+        "evaluador": "Evaluator: ",
+        "eval": "Evaluation",
+        "auto": "Self Evaluation",
+        "final": "Final Evaluation",
+        "alta": "New Evaluation:",
+        "altaFinal": "New Final Evaluation:",
+        "evaluacionContinua": "Select the employee you want to make an evaluation",
+        "evaluacionContinuaFinal": "Select the employee you want to make the final evaluation",
+        "evaluacionFinal": "This is a final evaluation. If you wish you can consult previous employee's evaluations by clicking Check Evaluation on superior menu",
+        "empleados": "Employee:",
+        "mandos": "Leaders:",
+        "completar": "Fill the questionnaire that will appear next and save it once its finished.",
+        "preguntas": "Questions",
+        "gestion": "Management",
+        "mando": "Leadership",
+        "etica": "Ethics",
+        "talento": "TALENT",
+        "actitud": "ATTITUDE",
+        "resultado": "BUSINESS",
+        "talentoActitud": "TALENT & ATTITUDE",
+        "resultadosBusiness": "BUSINESS",
+        "cultura": "VASS",
+        "estado1": "Far below than expected",
+        "estado2": "Below or worse than expected",
+        "estado3": "Expected",
+        "estado4": "Above or better then expected",
+        "estado5": "Far above the expected",
+        "estado6": "Not observed",
+        "preg1": "IT Professional expertise",
+        "preg2": "Determination",
+        "preg3": "Ability to prioritize & schedule work",
+        "preg4": "Development of intra-personal skills",
+        "preg5": "Communication & negotiation",
+        "preg6": "Self-motivation",
+        "preg7": "Cooperation & commitment",
+        "preg8": "Trustworthiness",
+        "preg9": "Creativity & innovation",
+        "preg10": "Proactivity & initiative",
+        "preg11": "Adaptation to change",
+        "preg12": "Continuous improvement",
+        "preg13": "Client focus",
+        "preg14": "Approach to quality",
+        "preg15": "Result orientation",
+        "preg16": "Decision making",
+        "preg17": "Change management",
+        "preg18": "Team building",
+        "preg19": "Encouragement",
+        "preg20": "Interpersonal skills development",
+        "preg21": "Sustainability",
+        "preg22": "Strategic vision",
+        "preg23": "Empowerment & delegation",
+        "preg24": "Excellence",
+        "preg25": "Pride of belonging",
+        "comentarios": "Comments",
+        "destacaMejora": "Competencies resumee",
+        "comentariosSugerencia": "If you wish, you can add a comment about the evaluation:",
+        "comentariosSugerenciaEvaluador": "Evaluator's comments:",
+        "estadosDestacados": "Select the three competencies in which you standout",
+        "estadosMejora": "Select the three competencies you must maximize",
+        "texarea": "Write here your comments",
+        "button": "Save",
+        "print": "Print",
+        "guardarCorrecto": "Saved successfully",
+        "guardarIncorrecto": "You must answer all the questions.",
+        "guardarCorrectoNoNota": "Saved successfully, though it was impossible to calculate the evaluation result.",
+        "guardarNoSeObserva": "Remember that you can only select one competency by pillar as Not Observed",
+        "guardarFalla": "And error has occured, please try again later or contact Admin",
+        "errorRRHHAlta": "It's not posible to create a new evalution without being Leader",
+        "errorNoEvaluable": "It's not posible to create a new evaluation without being an evaluable employee",
+        "errorNoAutoEvaluable": "It's not posible to create a self evaluation out of date of self evaluation period.",
+        "buttonCerrar": "Close",
+        "info": {
+            "definicion": "Definition:",
+            "comportamiento": "Evaluable behaviours:",
+            "preg1": {
+                "nombre": "IT Professional Expertise",
+                "definicionInfo": "Knowledge of the market and IT business, to be up-to-date",
+                "comportamientoInfo": "<li>Does the employee stay up-to-date with the latest market trends/activity (websites, publications, news in the sector and competition, etc.)</li><li>Does the employee have any personal or working relationship (networking) within and outside the company? And are they involved in events related to the sector and occupation in which they work?</li><li>When required, does the employee master the language or languages required for their role fluently, both written and spoken?</li>"
+            },
+            "preg2": {
+                "nombre": "Determination",
+                "definicionInfo": "Ability to deal with situations quickly and effectively",
+                "comportamientoInfo": "<li>In the case of unexpected events, problems, conflicts or difficulties, does the employee look for and coordinate the resources and assistance required to solve them?</li><li>Is the employee able to analyse a situation and put forward valid solutions?</li><li>Does the employee know how to solve critical situations?</li>"
+            },
+            "preg3": {
+                "nombre": "Ability to prioritize & schedule work",
+                "definicionInfo": "Capacity to organize their work efficiently",
+                "comportamientoInfo": "<li>Does the employee define and schedule actions, deadlines and required resources for their task, project or area?</li><li>Does the employee differentiate and prioritize what is urgent and what is important, do they manage their time efficiently?</li>"
+            },
+            "preg4": {
+                "nombre": "Development of intra-personal skills",
+                "definicionInfo": "Self-knowledge and self-control",
+                "comportamientoInfo": "<li>Is the employee aware of their strengths? And do they acknowledge their weakness with humility?</li><li>Does the employee act with confidence and self-assurance, managing and dominating their emotions? Is it balanced?</li><li>Does the employee show psychological and emotional strength facing adversity (resilence)?</li>"
+            },
+            "preg5": {
+                "nombre": "Communication & Negotiation",
+                "definicionInfo": "Ability to listen, express ideas and concepts effectively, persuade and infuence others.",
+                "comportamientoInfo": "<li>Does the employee listen, empathise, ask, share information and value other people's contribution?</li><li>Is the employee exemplary, proper and kind when working with other people?</li><li>Does the employee express clearly and coherently when communication both orally an in writing?</li><li>Does the employee maintain an appropiate image with respect to the situation (office, client meeting)?</li>"
+            },
+            "preg6": {
+                "nombre": "Self-Motivation",
+                "definicionInfo": "Giving reasons for taking actions",
+                "comportamientoInfo": "<li>Does the employee enjoy and bring meaning to their work consistently and optimistically?</li><li>Does the employee work intensely and set challenging objectives for themselves? Showing effot and overcoming them?</li>"
+            },
+            "preg7": {
+                "nombre": "Cooperation & Commitment",
+                "definicionInfo": "Collaboration in the decision and commitment to achieve a common goal",
+                "comportamientoInfo": "<li>Is the employee loyal and collaborative whilst sharing resource and expertise within the team?</li><li>Does the employee assume decisions made by the team as their own, and support the directives received?</li><li>As a team memeber, is the employee commited, sacrificing their own interest and targets if required for the common goal?</li>"
+            },
+            "preg8": {
+                "nombre": "Trustworthiness",
+                "definicionInfo": "Build good personal connections",
+                "comportamientoInfo": "<li>Does the employee build a positive working environment and avoid criticism and rumours?</li><li>Is their behaviour so exemplary that it inspires confidence to the rest of the team?</li>"
+            },
+            "preg9": {
+                "nombre": "Creativity & Innovation",
+                "definicionInfo": "Build, promote and implement latest changes in order to gain the best results",
+                "comportamientoInfo": "<li>Does the employee anticipate, discover, develop and propose new creative ideas, ways of working, products?services?</li><li>Does the employee apply new ideas, products, services, practices and procedures to address improvement in results?</li>"
+            },
+            "preg10": {
+                "nombre": "Proactivity & Initiative",
+                "definicionInfo": "Make things happen",
+                "comportamientoInfo": "<li>Does the employee look for answers to problems and new challenges rather than waiting for something to happen?</li><li>Is the employee able to act quickly in order to create new opportunities?</li><li>Is the employee inclined to take action with no need of previuos requirement?</li>"
+            },
+            "preg11": {
+                "nombre": "Adaptation to change",
+                "definicionInfo": "Dynamism and flexibility in relation to internal and external changes",
+                "comportamientoInfo": "<li>Does the employee deal positively and constructely with changes in the environment and within VASSIT, responding rapidly and flexibly to them?</li><li>Does the employee apply new ideas, resources, procedures, knowledge, etc. quickly and use them in their daily work?</li>"
+            },
+            "preg12": {
+                "nombre": "Continuous Improvement",
+                "definicionInfo": "Making endeavours to improve on day-to-day",
+                "comportamientoInfo": "<li>Does the employee propose and carry out improvement actions in the work place?</li><li>Does the employee learn from his/her mistakes and put in place the means to avoid it happening once again in the future?</li><li>Does the employee take criticism and suggestions well, and use this information to improve their work?</li><li>Does the employee show a willingness to look for new professional development opportunities and challenges?</li>"
+            },
+            "preg13": {
+                "nombre": "Client Focus",
+                "definicionInfo": "Constant proactive attitude in identifying and satisfying internal and external client needs and priorities",
+                "comportamientoInfo": "<li>Does the employee think as the clients do? Does he/she understand and know clients needs and expectations? And do they stay focused on achieving a high quality service?</li><li>Is he completely trusted by clients because they know its business, solves its problems and shows an interest in each client?</li><li>Does the employee defend and represent the client in VASSIT and VASSIT in the client?</li><li>Does the employee make a planned and sustained effort in the relationship with the client?</li><li>Does the employee always keep in mind the client when carrying out his/her tasks?</li>"
+            },
+            "preg14": {
+                "nombre": "Approach to quality",
+                "definicionInfo": "Search for quality at all levels in our day-to-day work",
+                "comportamientoInfo": "<li>Does the employee have on-going tasks and perform his/her work on time and to a high quality in all situations?</li>"
+            },
+            "preg15": {
+                "nombre": "Result Orientation",
+                "definicionInfo": "Goal-oriented",
+                "comportamientoInfo": "<li>Does the employee effectively fulfil operational targets (tangible and non-tangible)?</li><li>Does the employee effectively fulfil economics targets within the deadine?</li><li>Does the employee assess, on a regualr basis, the level of achievement of his/her objectives?</li>"
+            },
+            "preg16": {
+                "nombre": "Decision Making",
+                "definicionInfo": "Capacity of choice",
+                "comportamientoInfo": "<li>Does the employee responsibly take decisions when they required?</li><li>Is the employee responsible for his/her decisions?</li><li>Is the employee concerned about getting the appropiate information?</li><li>Does the employee minimize risks and act appropriately?</li>"
+            },
+            "preg17": {
+                "nombre": "Change Management",
+                "definicionInfo": "Lead change",
+                "comportamientoInfo": "<li>Does the employee understands involvements and consequences of changes?</li><li>Does the employee analyse sistematically the environment and anticipate variations?</li><li>Does the employee promote change initiatives and overcome team resistance?</li><li>Does the employee design and execute the change implementation strategy?</li>"
+            },
+            "preg18": {
+                "nombre": "Team Building",
+                "definicionInfo": "Build and lead top-ranked teams",
+                "comportamientoInfo": "<li>Does the employee organize the teamwork and encourage it as well?</li><li>Does the employee coordinate and develop talent in the team?</li><li>Does the employee respect their team and establish accountabilities?</li><li>Does the employee enforce thier rules and explain the reasons?</li><li>Does the employee encourage collaboration and commitment of the team?</li><li>Does the employee promote the participation for decision-making?</li>"
+            },
+            "preg19": {
+                "nombre": "Encoouragement",
+                "definicionInfo": "Manage to persuade others people towards actions",
+                "comportamientoInfo": "<li>Does the employee appropiately motivate and give incentives to their colleagues? (extrinsic motivation)</li><li>Does the employee add value to their subordinates work? (intrinsic motivation)</li><li>Does the employee give meaning to their subordinates work? (transcendental motivation)</li>"
+            },
+            "preg20": {
+                "nombre": "Interpersonal Skills Development",
+                "definicionInfo": "Ability to know and influence others",
+                "comportamientoInfo": "<li>Does the employee influence their colleagues in order to achieve goals?</li><li>Does the employee enable their colleagues to develop by proposing them areas to improve?</li><li>Does the employee he really know his/her colleagues?</li><li>Does the employee manage conflict situations by reconciling different positions in order to get a deal?</li>"
+            },
+            "preg21": {
+                "nombre": "Sustainability",
+                "definicionInfo": "Defines and aligns towards sustainable common long-term goals",
+                "comportamientoInfo": "<li>Is the employee concerned about satisfying their stakeholder (clients, partners, employees, suppliers,...) and getting their commitment and trust?</li><li>Does the employee balance present/short-term, future/long-term, and tangible and intangible results?</li><li>Does the employee set targets and formulate objectives in order to achieve them?</li>"
+            },
+            "preg22": {
+                "nombre": "Strategic Vision",
+                "definicionInfo": "Act with what they have in order to achieve what they want",
+                "comportamientoInfo": "<li>Does the employee point out a strategy in order to get a goal?</li><li>Does the employee identify strategic opportunites?</li><li>Does the employee think, decide and behave with an overall forward-looking approach?</li>"
+            },
+            "preg23": {
+                "nombre": "Empowerment & Delegation",
+                "definicionInfo": "Give responsability and initiative to others",
+                "comportamientoInfo": "<li>Does the employee set up clear performance goals and assign accountabilities within the team?</li><li>Does the employee delegate, set goals/challenges, monitor and provide feedback to their team?</li><li>Does the employee promote commitment and initiative within their team?</li><li>Does the employee develop actions towards improvement of the development of the capabilities and pool talent within their team?</li>"
+            },
+            "preg24": {
+                "nombre": "Excellence",
+                "definicionInfo": "Spirit of service and ethical behaviour",
+                "comportamientoInfo": "<li>Are the employee's decisions and behaviour managed within the limits of the law and alligned with the companies values and ethical code?</li><li>Does the amployee have a sense of duty and commitment through his/her effort and work done?</li><li>Does the employee act with integrity, building trust and credibility?</li>Does the employee behave hnestly, cautiously ad with equity putting the interest of VASSIT before their own interests?</li>"
+            },
+            "preg25": {
+                "nombre": "Pride of Belonging",
+                "definicionInfo": "Feel VASSIT and command this feeling",
+                "comportamientoInfo": "<li>Does the employee show they are porud to be part of VASSIT and fully engage in all of the company;s activities?</li><li>Does the employee know VASSIT culture and values and undertake, defend and promote them as his/her own?</li>Does the employee defend VASSIT prestige and interests at all times?</li>"
+            }
+        }
+    }
+}

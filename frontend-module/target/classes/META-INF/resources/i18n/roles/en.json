@@ -1,0 +1,21 @@
+{
+    "roles": {
+        "seleccion": "Employee's selection:",
+		"seleccionInfo": "Select the employee you want information about their roles ",
+        "empleados": "Employees:",
+		"cabecera": {
+						"nombre": "Employee's name",
+						"rol": "Role",
+						"modificar": "Modify"
+					},
+		"buttonGuardar": "Save",
+		"guardarCorrecto": "Role saved successfully",
+		"guardarIncorrecto": "You must select all the fields",
+		"buttonCerrar": "Close"
+	},
+	"ROLE_USER": "Employee",
+	"ROLE_RRHH": "H.R.",
+	"ROLE_GERENTE": "Manager",
+	"ROLE_DIRECTOR": "Director",
+	"ROLE_DIRECTORG": "General Director"
+}

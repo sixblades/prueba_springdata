@@ -1,0 +1,20 @@
+{
+    "errors": {
+        "403": {
+        	"title": "Forbidden!",
+        	"description": "You do not have permission to access this page."
+        },
+        "401": {
+        	"title": "Authorization Required!",
+        	"description": "You are not authorized to access the page."
+        },
+        "404": {
+         	"title": "Not Found!",
+        	"description": "The request URL was not found on this server."       	
+        }, 
+        "500": {
+            "title": "Internal Server Error!",
+        	"description": "The server encountered an internal error or misconfiguration and was unable to complete your request."       
+        }
+    }
+}
