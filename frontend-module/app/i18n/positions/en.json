@@ -1,0 +1,441 @@
+{
+    "positions.1.business": "Business",
+    "positions.1.businessDevelopment": "Sales & Marketing",
+    "positions.1.external": "External",
+    "positions.1.finance": "Finance & Administration",
+    "positions.1.functionalConsultancy": "Consulting",
+    "positions.1.hr": "HR",
+    "positions.1.operations": "Management Control",
+    "positions.1.softwareQuality": "QA",
+    "positions.1.staff": "Staff",
+    "positions.1.systems": "Infraestructure",
+    "positions.1.technical": "Technology",
+    "positions.1.layout" : "Layout",
+    
+    "positions.3.business": "Business",
+    "positions.3.businessDevelopment": "Business Development",
+    "positions.3.creativity": "Creativity/Design",
+    "positions.3.external": "External",
+    "positions.3.finance": "Finance & Administration",
+    "positions.3.hr": "People & Talent",
+    "positions.3.layout" : "Layout",
+    "positions.3.marketing" : "Marketing",
+    "positions.3.operations": "Management Control",
+    "positions.3.staff": "Staff",
+    "positions.3.technical": "Technology",
+    "positions.3.usability": "Usability",
+    
+    "positions.5.business": "Business",
+    "positions.5.businessDevelopment": "Sales & Marketing",
+    "positions.5.external": "External",
+    "positions.5.finance": "Finance & Administration",
+    "positions.5.functionalConsultancy": "Consulting",
+    "positions.5.hr": "People & Talent",
+    "positions.5.operations": "Management Control",
+    "positions.5.softwareQuality": "QA",
+    "positions.5.staff": "Staff",
+    "positions.5.systems": "Infraestructure",
+    "positions.5.technical": "Technology",
+    
+    "vass" : {
+        "V1" : {
+            "technical.developer" : "Junior Developer",
+            "systems.supportTechnician" : "Support",
+            "softwareQuality.testingTechnicalAssistant" : "Junior Tester",
+            "layout.webDesigner" : "Web Designer",
+            "functionalConsultancy.juniorConsultant" : "Junior Consultant",
+            "businessDevelopment.commercialAssistant" : "Executive Assistant",
+            "finance.administrativeAssistant" : "Administrative Assistant",
+            "operations.operationsAssistant" : "Management Control Assistant",
+            "hr.HRAssistant" : "People & Talent Assistant"
+        },
+        "V2" : {
+            "technical.developerAnalyst" : "Developer",
+            "systems.systemsTechnician" : "Systems Administrator",
+            "softwareQuality.tester" : "Tester",
+            "layout.seniorWebDesigner" : "Senior Web Designer",
+            "functionalConsultancy.consultant" : "Consultant",
+            "businessDevelopment.commercialTechnician" : "Account Executive",
+            "finance.administrativeTechnician" : "Administrative Technician",
+            "operations.operationsTechnician" : "Management Control Technician",
+            "hr.HRTechnician" : "People & Talent Technician"
+        },
+        "V3" : {
+            "technical" : {
+                "architect" : "Enterprise Architect",
+                "architectTL" : "Enterprise Architect TL",
+                "technicalConsultant" : "Solution Architect",
+                "technicalConsultantTL" : "Solution Architect TL",
+                "functionalAnalyst" : "Analyst",
+                "functionalAnalystTL" : "Analyst TL",
+                "teamHeadTL" : "Team Leader"
+            },
+            "systems" : {
+                "systemsAdmin" : "Infraestructure Consultant",
+                "systemsAdminTL" : "Infraestructure Consultant TL"
+            },
+            "softwareQuality" : {
+                "methodologicalConsultant" : "Methodological Consultant",
+                "methodologicalConsultantTL" : "Methodological Consultant TL",
+                "expertTester" : "Senior Tester",
+                "expertTesterTL" : "Senior Tester TL"
+            },
+            "layout" : {
+                "teamHeadTL" : "Team Leader TL",
+                "expertWebDesigner" : "Expert Web Designer"
+            },
+            "functionalConsultancy" : {
+                "seniorConsultant" : "Senior Consultant",
+                "seniorConsultantTL" : "Senior Consultant TL",
+                "teamHeadTL" : "Team Leader TL"
+            },
+            "businessDevelopment.seniorCommercial" : "Senior Account Executive",
+            "finance" : {
+                "administrativeConsultant" : "Administrative Consultant",
+                "administrativeConsultantTL" : "Administrative Consultant TL"
+            },
+            "operations" : {
+                "operationsConsultant" : "Management Control Consultant",
+                "operationsConsultantTL" : "Managment Control Consultant TL"
+            },
+            "hr" : {
+                "HRConsultant" : "People & Talent Consultant",
+                "HRConsultantTL" : "People & Talent Consultant TL"
+            }
+        },
+        "V4": {
+            "technical" : {
+                "deliveryManager" : "Delivery Manager",
+                "projectManager" : "Project Manager",
+                "projectManagerTL" : "Project Manager TL",
+                "serviceManager" : "Service Manager",
+                "teamHead" : "Team Leader",
+                "teamHeadTL" : "Team Leader TL",
+                "technologyConsultant" : "Expert"
+            },
+            "systems" : {
+                "BTM" : "BTM",
+                "projectManager" : "Project Manager",
+                "projectManagerTL" : "Project Manager TL",
+                "serviceManager" : "Service Manager",
+                "systemsConsultant" : "Infraestructure Architect",
+                "teamHead" : "Team Leader",
+                "teamHeadTL" : "Team Leader TL"
+            },
+            "softwareQuality" : {
+                "BTM" : "BTM",
+                "seniorMethodologicalConsultant" : "Senior Methodological Consultant",
+                "serviceManager" : "Service Manager",
+                "testManager" : "Test Manager",
+                "testManagerTL" : "Test Manager TL"
+            },
+            "layout" : {
+                "areaResponsible" : "Area Responsible",
+                "expertWebDesigner" : "Expert Web Designer"
+            },
+            "functionalConsultancy" : {
+                "businessConsultant" : "Business Consultant",
+                "consultingManager" : "Consulting Manager",
+                "deliveryManager" : "Delivery Manager",
+                "projectManager" : "Project Manager",
+                "projectManagerTL" : "Project Manager TL",
+                "serviceManager" : "Service Manager",
+                "teamHead" : "Team Leader",
+                "teamHeadTL" : "Team Leader TL"
+            },
+            "businessDevelopment" : {
+                "accountManager" : "Account Manager",
+                "keyAccountManager" : "Key Account Manager",
+                "salesManager" : "Sales Manager"
+            },
+            "finance" : {
+                "seniorConsultant" : "Senior Consultant",
+                "areaResponsible" : "Area Responsible"
+            },
+            "operations" : {
+                "seniorConsultant" : "Senior Consultant",
+                "areaResponsible" : "Area Responsible"
+            },
+            "hr" : {
+                "seniorConsultant" : "Senior Consultant",
+                "areaResponsible" : "Area Responsible"
+            }
+        },
+        "V5" : {
+            "business" : {
+                "manager" : "Manager",
+                "seniorManager" : "Senior Manager",
+                "director" : "Director"
+            },
+            "businessDevelopment" : {
+                "manager" : "Manager",
+                "seniorManager" : "Senior Manager",
+                "director" : "Director"
+            },
+            "staff.manager" : "Manager",
+            "staff.seniorManager" : "Senior Manager",
+            "staff.director" : "Director"
+        },
+        "E1" : {
+            "external.external" : "External",
+            "external.trainee" : "Trainee"
+        }
+    },
+    "serbatic" : {
+        "V1" : {
+            "functionalConsultancy.juniorConsultant" : "Junior Consultant",
+            "softwareQuality.testingTechnicalAssistant" : "Junior Tester",
+            "systems" : {
+                "helpdeskOperator" : "Support",
+                "supportTechnician" : "Junior Tester"
+            },
+            "technical.developer" : "Junior Developer",        
+            "finance.administrativeAssistant" : "Administrative Assistant",
+            "hr.HRAssistant" : "People & Talent Assistant",
+            "operations.operationsAssistant" : "Management Control Assistant"
+        },
+        "V2" : {
+            "functionalConsultancy.consultant" : "Consultant",
+            "softwareQuality.tester" : "Tester",
+            "systems" : {
+                "coordinator" : "Coordinator",
+                "systemsTechnician" : "Systems Administrator"
+            },
+            "technical.developerAnalyst" : "Developer",
+            "finance.administrativeTechnician" : "Administrative Technician",
+            "hr.HRTechnician" : "People & Talent Technician",
+            "operations.operationsTechnician" : "Management Control Technician"
+        },
+        "V3" : {
+            "functionalConsultancy" : {
+                "seniorConsultant" : "Senior Consultant", 
+                "seniorConsultantTL" : "Senior Consultant TL"
+            },
+            "softwareQuality" : {
+                "expertTester" : "Senior Tester",
+                "expertTesterTL" : "Senior Tester TL",
+                "methodologicalConsultant" : "Methodological Consultant",
+                "methodologicalConsultantTL" : "Methodological Consultant TL"
+            },
+            "systems" : {
+                "systemsAdmin" : "Infraestructure Consultant",
+                "systemsAdminTL" : "Infraestructure Consultant TL"
+            },
+            "technical" : {
+                "architect" : "Senior Developer",
+                "architectTL" : "Senior Developer TL",
+                "functionalAnalyst" : "Analyst",
+                "functionalAnalystTL" : "Analyst TL",
+                "technicalConsultant" : "Technical Consultant",
+                "technicalConsultantTL" : "Technical Consultant TL"
+            },
+            "finance" : {
+                "administrativeConsultant" : "Administrative Consultant",
+                "administrativeConsultantTL" : "Administrative Consultant TL"
+            },
+            "hr" : {
+                "HRConsultant" : "People & Talent Consultant",
+                "HRConsultantTL" : "People & Talent Consultant TL"
+            },
+            "operations" : {
+                "operationsConsultant" : "Management Control Consultant",
+                "operationsConsultantTL" : "Managment Control Consultant TL"
+            }
+        },
+        "V4" : {
+            "functionalConsultancy" : {
+                "BTM" : "BTM",
+                "businessConsultant" : "Business Consultant",
+                "projectManager" : "Project Manager",
+                "projectManagerTL" : "Project Manager TL",
+                "serviceManager" : "Service Manager"
+            },
+            "softwareQuality" : {
+                "BTM" : "BTM",
+                "seniorMethodologicalConsultant" : "Senior Methodological Consultant",
+                "serviceManager" : "Service Manager",
+                "testManager" : "Test Manager",
+                "testManagerTL" : "Test Manager TL"
+            },
+            "systems" : {
+                "BTM" : "BTM",
+                "projectManager" : "Project Manager",
+                "projectManagerTL" : "Project Manager TL",
+                "serviceManager" : "Service Manager",
+                "systemsConsultant" : "Infraestructure Architect"
+            },
+            "technical" : {
+                "BTM" : "BTM",
+                "projectManager" : "Project Manager",
+                "projectManagerTL" : "Project Manager TL",
+                "serviceManager" : "Service Manager",
+                "teamHead" : "Team Head",
+                "teamHeadTL" : "Team Head TL",
+                "technicalConsultant" : "Technology Consultant"
+            },
+            "finance" : {
+                "areaResponsible" : "Area Responsible",
+                "seniorConsultant" : "Senior Consultant"
+            },
+            "hr" : {
+                "areaResponsible" : "Area Responsible",
+                "seniorConsultant" : "Senior Consultant"
+            },
+            "operations" : {
+                "areaResponsible" : "Area Responsible",
+                "seniorConsultant" : "Senior Consultant"
+            }
+        },
+        "V5" : {
+            "business" : {
+                "manager" : "Manager",
+                "seniorManager" : "Senior Manager",
+                "director" : "Director"
+            },
+            "businessDevelopment" : {
+                "manager" : "Manager",
+                "seniorManager" : "Senior Manager",
+                "director" : "Director"
+            },
+            "staff.manager" : "Manager",
+            "staff.seniorManager" : "Senior Manager",
+            "staff.director" : "Director"
+        },
+        "E1" : {
+            "external.external" : "External",
+            "external.trainee" : "Trainee",
+            "external.user" : "User"
+        }
+    },
+    "vassdigital" : {
+        "V1" : {
+            "creativity" : {
+                "assistant" : "Assistant",
+                "designer" : "Designer"             
+            },
+            "finance.administrativeAssistant" : "Administrative Assistant",
+            "hr.HRAssistant" : "People & Talent Assistant",
+            "layout" : {
+                "assistant" : "Assistant",
+                "designer" : "Designer"
+            },
+            "marketing" : {
+                "assistant" : "Assistant",
+                "marketingTechnician" : "Marketing Technician"
+            },
+            "operations.operationsAssistant" : "Management Control Assistant",
+            "technical" : {
+                "assistant" : "Assistant",
+                "developer" : "Developer"
+            },
+            "usability" : {
+                "assistant" : "Assistant",
+                "designer" : "Designer",
+                "webDesigner" : "Web Designer"
+            }
+        },
+        "V2" : {
+            "creativity.seniorDesigner" : "Senior Designer",
+            "finance.administrativeTechnician" : "Administrative Technician",
+            "hr.HRTechnician" : "People & Talent Technician",
+            "layout.seniorWebDesigner" : "Senior Web Designer",
+            "marketing.marketingConsultant" : "Marketing Consultant",
+            "operations.operationsTechnician" : "Management Control Technician",
+            "technical" : {
+                "consultant" : "Consultant",
+                "developerAnalyst" : "Developer Analyst"
+            },
+            "usability.usabilityConsultant" : "Usability Consultant"
+        },
+        "V3" : {
+            "creativity" : {
+                "expertDesigner" : "Expert Designer",
+                "teamHead" : "Team Head"
+            },
+            "finance" : {
+                "administrativeConsultant" : "Administrative Consultant",
+                "administrativeConsultantTL" : "Administrative Consultant TL"
+            },
+            "hr" : {
+                "HRConsultant" : "People & Talent Consultant",
+                "HRConsultantTL" : "People & Talent Consultant TL"
+            },
+            "layout" : {
+                "expertWebDesigner" : "Expert Web Designer",
+                "teamHead" : "Team Head"
+            },
+            "marketing" : {
+                "accountManager" : "Account Manager",
+                "teamHead" : "Team Head"
+            },
+            "operations" : {
+                "operationsConsultant" : "Management Control Consultant",
+                "operationsConsultantTL" : "Management Control Consultant TL"
+            },
+            "technical" : {
+                "teamHead" : "Team Head",
+                "technologyConsultant" : "Technology Consultant"
+            },
+            "usability" : {
+                "expertUsabilityConsultant" : "Expert Usability Consultant",
+                "teamHead" : "Team Head"
+            }
+        },
+        "V4" : {
+            "creativity" : {
+                "areaResponsible" : "Area Responsible",
+                "expertDesigner" : "Expert Designer"
+            },
+            "finance" : {
+                "areaResponsible" : "Area Responsible",
+                "seniorConsultant" : "Senior Consultant"
+            },
+            "hr" : {
+                "areaResponsible" : "Area Responsible",
+                "seniorConsultant" : "Senior Consultant"
+            },
+            "layout" : {
+                "areaResponsible" : "Area Responsible",
+                "expertWebDesigner" : "Expert Web Designer"
+            },
+            "marketing" : {
+                "areaResponsible" : "Area Responsible",
+                "strategicAccountsManager" : "Strategic Accounts Manager"
+            },
+            "operations" : {
+                "areaResponsible" : "Area Responsible",
+                "seniorConsultant" : "Senior Consultant"
+            },
+            "technical" : {
+                "areaResponsible" : "Area Responsible",
+                "technologyConsultant" : "Technology Consultant"
+            },
+            "usability" : {
+                "areaResponsible" : "Area Responsible",
+                "expertUsabilityConsultant" : "Expert Usability Consultant"
+            }
+        },
+        "V5" : {
+            "business" : {
+                "manager" : "Manager",
+                "seniorManager" : "Senior Manager",
+                "director" : "Director"
+            },
+            "businessDevelopment" : {
+                "manager" : "Manager",
+                "seniorManager" : "Senior Manager",
+                "director" : "Director"
+            },
+            "staff" : {
+                "manager" : "Manager",
+                "seniorManager" : "Senior Manager",
+                "director" : "Director"
+            }
+        },
+        "E1" : {
+            "external.trainee" : "Trainee",
+            "external.external" : "External",
+            "external.user" : "User"
+        }
+    }
+}

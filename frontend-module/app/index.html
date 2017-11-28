@@ -1,0 +1,224 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<!--  <html xmlns="http://www.w3.org/1999/xhtml">-->
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VASS&You 3.0</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link type="image/vnd.microsoft.icon" href="http://www.vass.es/sites/all/themes/vass/favicon.ico" rel="shortcut icon">
+
+    <!-- build:css(.) styles/vendor.css -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="bower_components/magnific-popup/dist/magnific-popup.css" rel="stylesheet" type="text/css" media="screen" />
+   <!-- endbuild -->
+
+    <!-- build:css styles/main.css -->
+    <link href="styles/style.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="styles/datepickerCSS.css" rel="stylesheet" media="screen" />
+    <link href="styles/responsive.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="styles/increments.css" rel="stylesheet" type="text/css" media="screen" />
+    <!-- endbuild -->
+
+    <!-- build:css styles/print.css -->
+    <link href="styles/imprimir.css" rel="stylesheet" media="print" type="text/css" />
+    <!-- endbuild -->
+
+    <!-- build:css styles/font-awesome.min.css -->
+    <link href="styles/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- endbuild -->
+</head>
+
+<body class="{{bodylayout}}" ng-app="mentoringApp">
+    <!--[if lt IE 10]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <div class="" ui-view="header"></div>
+
+    <div class="clase_print">
+        <div class="" id="content" ui-view="content"></div>
+
+        <footer role="contentinfo" class="bs-docs-footer col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <p class="derechos_footer" translate="footer"></p>
+        </footer>
+    </div>
+    <div id="pleaseWaitDialog" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 translate="loading"></h1>
+            </div>
+            <div class="modal-body">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar"
+                        aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+  </div>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="/bower_components/modernizr/modernizr.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/bower_components/jquery-ui/jquery-ui.js"></script>
+    <script src="/bower_components/json3/lib/json3.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="/bower_components/ui-router-extras/release/ct-ui-router-extras.js"></script>
+    <script src="/bower_components/angular-resource/angular-resource.js"></script>
+    <script src="/bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="/bower_components/angular-translate/angular-translate.js"></script>
+    <script src="/bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
+    <script src="/bower_components/angular-translate-loader-partial/angular-translate-loader-partial.js"></script>
+    <script src="/bower_components/angular-dynamic-locale/src/tmhDynamicLocale.js"></script>
+    <script src="/bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script src="/bower_components/angular-cache-buster/angular-cache-buster.js"></script>
+    <script src="/bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
+    <script src="/bower_components/Chart.js/Chart.js"></script>
+    <script src="/bower_components/tc-angular-chartjs/dist/tc-angular-chartjs.min.js"></script>
+    <script src="/bower_components/magnific-popup/dist/jquery.magnific-popup.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+
+    <!-- build:js(.tmp) scripts/main.js -->
+    <script src="scripts/Mentoring.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/app.config.js"></script>
+    <script src="scripts/app.constants.js"></script>
+    <script src="scripts/app.run.js"></script>
+
+    <script src="scripts/account/account.state.js"></script>
+    <script src="scripts/account/language/language.service.js"></script>
+    <script src="scripts/account/language/language.controller.js"></script>
+
+    <script src="scripts/account/login/login.state.js"></script>
+    <script src="scripts/account/login/login.controller.js"></script>
+
+    <script src="scripts/account/logout/logout.state.js"></script>
+    <script src="scripts/account/logout/logout.controller.js"></script>
+
+    <script src="scripts/account/sessions/sessions.state.js"></script>
+    <script src="scripts/account/sessions/sessions.controller.js"></script>
+
+    <script src="scripts/account/settings/settings.state.js"></script>
+    <script src="scripts/account/settings/settings.controller.js"></script>
+
+    <script src="scripts/allocation/allocation.state.js"></script>
+    <script src="scripts/allocation/allocation.controller.js"></script>
+    <script src="scripts/allocation/allocation.service.js"></script>
+
+    <script src="scripts/auth/auth.service.js"></script>
+    <script src="scripts/auth/principal.service.js"></script>
+
+    <script src="scripts/auth/services/account.service.js"></script>
+    <script src="scripts/auth/services/activate.service.js"></script>
+    <script src="scripts/auth/services/password.service.js"></script>
+    <script src="scripts/auth/services/register.service.js"></script>
+    <script src="scripts/auth/services/sessions.service.js"></script>
+    <script src="scripts/auth/services/user.service.js"></script>
+
+    <script src="scripts/auth/provider/auth.session.service.js"></script>
+
+    <script src="scripts/configuration/admin.state.js"></script>
+
+    <script src="scripts/configuration/audits/audits.state.js"></script>
+    <script src="scripts/configuration/audits/audits.controller.js"></script>
+    <script src="scripts/configuration/audits/audits.service.js"></script>
+
+    <script src="scripts/configuration/configurationApp/configuration.state.js"></script>
+    <script src="scripts/configuration/configurationApp/configuration.controller.js"></script>
+    <script src="scripts/configuration/configurationApp/configuration.service.js"></script>
+
+    <script src="scripts/configuration/docs/docs.state.js"></script>
+    <script src="scripts/configuration/docs/docs.controller.js"></script>
+
+    <script src="scripts/configuration/health/health.state.js"></script>
+    <script src="scripts/configuration/health/health.controller.js"></script>
+    <script src="scripts/configuration/health/health.service.js"></script>
+
+    <script src="scripts/configuration/logs/logs.state.js"></script>
+    <script src="scripts/configuration/logs/logs.controller.js"></script>
+    <script src="scripts/configuration/logs/logs.service.js"></script>
+
+    <script src="scripts/configuration/metrics/metrics.state.js"></script>
+    <script src="scripts/configuration/metrics/metrics.controller.js"></script>
+
+    <script src="scripts/configuration/roles/roles.state.js"></script>
+    <script src="scripts/configuration/roles/roles.controller.js"></script>
+    <script src="scripts/configuration/roles/roles.service.js"></script>
+
+    <script src="scripts/consult/consult.state.js"></script>
+    <script src="scripts/consult/consult.controller.js"></script>
+    <script src="scripts/consult/consult.service.js"></script>
+    <script src="scripts/consult/consultEvaluation.controller.js"></script>
+    <script src="scripts/consult/consultEvaluation.service.js"></script>
+    <script src="scripts/consult/consultEvaluationAutoevaluation.controller.js"></script>
+    <script src="scripts/consult/consultEvaluationAutoevaluation.service.js"></script>
+
+    <script src="scripts/error/error.js"></script>
+
+    <script src="scripts/evaluation/evaluation.state.js"></script>
+    <script src="scripts/evaluation/evaluation.controller.js"></script>
+    <script src="scripts/evaluation/evaluation.service.js"></script>
+    <script src="scripts/evaluation/evaluationleader.controller.js"></script>
+    <script src="scripts/evaluation/evaluationleader.service.js"></script>
+    <script src="scripts/evaluation/leadersEvaluations.controller.js"></script>
+    <script src="scripts/evaluation/leadersEvaluations.service.js"></script>
+    <script src="scripts/evaluation/employeesEvaluation.controller.js"></script>
+    <script src="scripts/evaluation/employeesEvaluation.service.js"></script>
+    <script src="scripts/evaluation/allEvaluations.controller.js"></script>
+
+    <script src="scripts/home/home.js"></script>
+    <script src="scripts/home/home.controller.js"></script>
+    <script src="scripts/main/main.controller.js"></script>
+
+    <script src="scripts/increments/increments.state.js"></script>
+    <script src="scripts/increments/individual.controller.js"></script>
+    <script src="scripts/increments/individual.service.js"></script>
+    <script src="scripts/increments/multiple.controller.js"></script>
+    <script src="scripts/increments/multiple.service.js"></script>
+    <script src="scripts/increments/increments.controller.js"></script>
+    <script src="scripts/increments/increments.service.js"></script>
+    <script src="scripts/increments/limits.controller.js"></script>
+    <script src="scripts/increments/limits.service.js"></script>
+    
+    <script src="scripts/information/information.state.js"></script>
+    <script src="scripts/information/information.controller.js"></script>
+    <script src="scripts/information/CTModel/CTModel.controller.js"></script>
+    <script src="scripts/information/CTModel/CTModel.service.js"></script>
+    <script src="scripts/information/competences/assignCompetenceValues.controller.js"></script>
+    <script src="scripts/information/competences/assignCompetenceValues.service.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js(.tmp) scripts/components.js -->
+    <script src="scripts/components/form/form.directive.js"></script>
+    <script src="scripts/components/header/header.controller.js"></script>
+    <script src="scripts/components/calendar/calendar.directive.js"></script>
+
+    <script src="scripts/util/truncate.filter.js"></script>
+    <script src="scripts/util/base64.service.js"></script>
+    <script src="scripts/util/parse-links.service.js"></script>
+    <script src="scripts/util/numeric.filter.js"></script>
+    <script src="scripts/util/audit.service.js"></script>
+    <!-- endbuild -->
+</body>
+
+</html>

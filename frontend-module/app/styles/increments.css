@@ -1,0 +1,145 @@
+.separator{
+  width: 100%;
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 15px;
+  float: left;
+}
+
+
+.section_increments{
+  margin-top: 15px;
+  padding-top:10px;
+}
+
+.section_increments dl{
+  border: 1px solid lightGray;
+  padding: 0;
+}
+
+.section_increments dl dt{
+    border-right: 1px solid lightGray;
+    border-bottom: 1px solid lightgray;
+}
+.section_increments dl dt:last-of-type{
+  border-bottom: none;
+}
+
+.section_increments dl dd{
+  border-bottom: 1px solid lightgray
+}
+
+.section_increments dl dd:last-of-type{
+  border-bottom: none;
+}
+
+.tc-chart-js-legend {
+  list-style: none;
+  padding: 0;
+  background: white;
+  border: 1px solid black;
+  border-radius: 4px;
+  width: 100px;
+  margin: 0 auto 10px auto;
+}
+
+.tc-chart-js-legend li {
+  padding-left: 1em;
+  text-indent: -.7em;
+}
+
+.tc-chart-js-legend li:before {
+  content: "• ";
+  color: red; /* or whatever color you prefer */
+}
+.tc-chart-js-legend li:nth-of-type(2):before {
+  content: "• ";
+  color: green; /* or whatever color you prefer */
+}
+.tc-chart-js-legend li:nth-of-type(3):before {
+  content: "• ";
+  color: black; /* or whatever color you prefer */
+}
+.tc-chart-js-legend li:nth-of-type(4):before {
+  content: "• ";
+  color: blue; /* or whatever color you prefer */
+}
+
+
+.table_increments_individual{
+  width: 100%;
+  margin-top:10px;
+}
+
+
+.table_increments_individual tr{
+  width: 100%;
+  margin-top:10px;
+}
+
+.table_increments_individual tr td{
+  width: 14.28%;
+}
+
+.table_increments_individual tr .blue_span{
+  /*background-color: #365986;*/
+  background: #004071;
+  color: #fff;
+  vertical-align:middle;
+  text-align: center;
+}
+
+.table_increments_individual tr .green_span{
+  /*background-color: #348834;*/
+  background: #729d00;
+  color: #fff;
+}
+
+.table_increments_individual tr .yellow_span{
+ /* background-color: #D8D821;*/
+ background: #f1d600;
+  color: #fff;
+}
+
+.multiple_table{
+  font-size: 13px;
+}
+
+.multiple_table input[type="text"]{
+  color: black;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.no_wrap{
+  white-space: nowrap;
+}
+
+.uppercase{
+  text-transform: uppercase;
+}
+
+.with_input input{
+  width: 3em;
+  text-align: center;
+}
+
+.with_input span{
+
+}
+
+.table_limits input{
+  width: 5em;
+  text-align: center;
+  margin-right:10px;
+}
+
+@media screen and (max-width : 480px) {
+  .pull-xs-left{
+    float: left;
+  }
+  .with_input input {
+    width: 2em;
+    text-align: center;
+  }
+}

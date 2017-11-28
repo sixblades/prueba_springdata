@@ -1,0 +1,65 @@
+{
+    "allocation": {
+        "seleccion": "Selección de Empleado:",
+		"seleccionInfo": "Puedes realizar una búsqueda de asignaciones anteriores seleccionando el Mando o el Empleado que desees.",
+		"seleccionInfo2" :"Para realizar una nueva asignación, pulsa el botón Nueva.",
+        "empleados": "Empleados:",
+		"mandos": "Evaluadores:",
+		"fechaDesde": "Fecha desde",
+		"fechaHasta": "Fecha hasta",
+		"customEmpleados" : "Selecciona un empleado",
+		"customEvaluadores" : "Selecciona un evaluador",
+		"cabecera": {
+			"fechaDesde": "Fecha desde",
+			"fechaHasta": "Fecha hasta",
+			"nomEmp": "Nombre de empleado",
+			"nomEval": "Nombre de evaluador",
+			"modificar": "Modificar"
+		},
+		"button": "Guardar",
+		"modificacion": "Modificación de la asignación:",
+		"buttonCancelar": "Cancelar",
+		"correcto": "Se ha guardado correctamente.",
+		"incorrecto": "Debes introducir mando, empleado y la fecha debe ser posterior a la última asignación.",
+		"buttonCerrar": "Cerrar",
+		"error" : {
+			"allocation" : "Debes especificar los campos de la asignación.",
+			"dateFrom.invalid" : "No puede crearse una asignación con fecha inicio anterior a la fecha de inicio de la última asignación.",
+			"dateFrom.invalidUntil" : "No puede crearse una asignación con fecha inicio anterior a la fecha final de la última asginación.",
+			"dateUntil.beforeFrom" : "La fecha hasta no puede ser anterior a la fecha inicio",
+			"previous.sameLeader" : "No es posible crear una asignación con el mismo empleado y lider que la ultima asignación, si esta no está cerrada previamente"
+		},
+		"new" : {
+			"title" : "Nueva Asignación",
+			"button" : "Nueva",
+			"empleado" : "Empleados",
+			"evaluador": "Evaluadores",
+			"dateFrom" : "Fecha Desde"
+		},
+		"mod": {
+			"empleado": "Empleado:",
+			"evaluador" : "Evaluador:",
+			"fechaDesde": "Fecha desde:",
+			"fechaHasta": "Fecha hasta:"
+		},
+		"modal": {
+			"ok": "Aceptar",
+			"error" :{
+				"default" : "Ha ocurrido un error procesando la solicitud.",
+				"modify": "Ha ocurrido un error modificando la asignación.",
+				"new": "Ha ocurrido un error creando la asignación.",
+				"title" : "Error"
+			},
+			"success" : {
+				"modify" : "La asignación se ha modificado correctamente.",
+				"title" : "Éxito"
+			},
+			"new" : {
+				"modify" : "La asignación se ha creado correctamente.",
+				"title" : "Éxito",
+				"warning" : "Atención",
+				"invalid" : "El formulario es inválido."
+			}
+		}
+	}
+}

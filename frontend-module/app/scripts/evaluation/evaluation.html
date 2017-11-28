@@ -1,0 +1,240 @@
+<article class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="article" role="main">
+	<section class="col-lg-12 col-md-12 col-xs-12 main_content" role="region">       
+		<div ng-class="classEval" ng-if="evaluationCtrl.evaluableByUser" class="centerGeneral">
+			
+			<legend class="text-center pageTitle" translate="evaluation.alta" ng-if="!evaluationCtrl.isFinalEvaluation"></legend>
+			<legend class="text-center pageTitle" translate="evaluation.altaFinal" ng-if="evaluationCtrl.isFinalEvaluation"></legend>
+			<p class="final_alert" translate="evaluation.evaluacionFinal" ng-if="evaluationCtrl.isFinalEvaluation"></p>
+
+			<p translate="evaluation.evaluacionContinua" ng-if="!evaluationCtrl.isFinalEvaluation"></p>
+			<p translate="evaluation.evaluacionContinuaFinal" ng-if="evaluationCtrl.isFinalEvaluation"></p>
+
+			<label translate="evaluation.empleados"></label>
+			<div class="evaluacion_formselect">
+				<select class="form-control" ng-model="evaluationCtrl.evaluable.info" 
+						ng-options="evaluable.firstSurnameEmployee + ' ' + evaluable.secondSurnameEmployee + ', ' + evaluable.nameEmployee for evaluable in evaluationCtrl.evaluables"
+						ng-change="evaluationCtrl.change()"
+						ng-if='!evaluationCtrl.roleDIRECTORG && !evaluationCtrl.roleADMIN && !evaluationCtrl.roleRRHH && !evaluationCtrl.roleDIRECTOR'>
+					<option value=""></option>
+				</select>
+				
+				<select class="form-control" ng-model="evaluationCtrl.evaluable.info" 
+						ng-options="evaluable.firstSurname + ' ' + evaluable.secondSurname + ', ' + evaluable.name for evaluable in evaluationCtrl.evaluables"
+						ng-change="evaluationCtrl.change()" 
+						ng-if='evaluationCtrl.roleDIRECTORG || evaluationCtrl.roleDIRECTOR || evaluationCtrl.roleADMIN || evaluationCtrl.roleRRHH'>
+					<option value=""></option>
+				</select>
+			</div>
+			<p translate="evaluation.completar"></p>
+		</div>
+
+		<form name="miFormulario" ng-if="evaluationCtrl.showEvaluationForm()" class="centerGeneral">
+			<div ng-repeat="competence in evaluationCtrl.competences">
+				
+				<!-- Talento, Gestion, etc -->
+				<table class="table table_evaluacion" ng-if="pillar.competenceId == competence.competenceId" 
+						ng-repeat="pillar in evaluationCtrl.pillars">
+					<tbody>
+						<div class="table_titulo">
+							<h2 class="text-center" ng-if="competence.competenceCode != undefined">
+								{{'evaluation.'+competence.competenceCode | translate}}
+							</h2>
+						</div>
+						<tr>
+							<td class="pilar_{{pillar.pillarCode}}" colspan="7">
+								<div>
+									<h3 class="text-center">{{'evaluation.'+pillar.pillarCode | translate}}</h3>
+								</div>
+							</td>
+						</tr>
+						
+						<!-- Columna con posibles valoraciones de preguntas -->
+						<tr class="table_literales_preguntas">
+							<th class="lt0">
+								<span translate="evaluation.preguntas"></span>
+							</th>
+							<td class="lt{{states.id}}" ng-repeat="states in evaluationCtrl.statess">
+								<span class="text-center">{{'evaluation.'+states.statesCode | translate}}</span>
+							</td>
+						</tr>
+						
+						<!-- Preguntas y sus valoraciones -->
+						<tr ng-if="questions.competenceId == competence.competenceId && questions.pillarId == pillar.pillarId" 
+							ng-repeat="questions in evaluationCtrl.questionss">
+							<th>
+								<a data-toggle="modal" data-target="#myModaldescipcion1" ng-click="evaluationCtrl.getQuestionCode(questions.questionsCode)">{{'evaluation.'+questions.questionsCode | translate}}</a>
+							</th>
+							<td class="respuesta" ng-repeat="states in evaluationCtrl.statess" 
+								ng-class="{tdactiveBtn: $index == evaluationCtrl.selected[questions.id]}">
+								<div>
+									<span class="text-center literal_movil">{{'evaluation.'+states.statesCode | translate}}</span>
+									<button class="bt{{states.id}}" ng-class="{activeBtn: $index == evaluationCtrl.selected[questions.id]}" 
+										ng-model="evaluationCtrl.respuesta[questions.id]"
+										data-ng-click="evaluationCtrl.respuesta[questions.id] = states.id;evaluationCtrl.select($index, questions.id)" 
+										name="{{questions.id}}" ng-value="{{states.id}}"
+										required>{{'evaluation.'+states.statesCode | translate}}
+									</button>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="clase_print_observacion_left">
+				<table class="table table_evaluacion table_evaluacion_textarea">
+					<tr>
+						<div class="table_titulo table_textarea_tittle">
+							<h2 class="text-center" translate="evaluation.destacaMejora"></h2>
+						</div>
+						<td colspan="7">
+							<h3 class="labelCompetencias centerGeneral" translate="evaluation.estadosDestacados"></h3>
+							<label for="" class="textarea_label" translate="evaluation.estadosDestacados"></label>
+							<div class="evaluacion_formselect centerGeneral">
+								
+								<select class="select_competencias form-control" 
+									ng-model="evaluationCtrl.destacados[0]" required data-ng-change="evaluationCtrl.add()">
+									<option value="{{questions.questionsCode}}" ng-repeat="questions in evaluationCtrl.questionss" 
+										ng-if="evaluationCtrl.listSelect.indexOf(questions.questionsCode) == -1 || evaluationCtrl.destacados[0]==questions.questionsCode">{{'evaluation.'+questions.questionsCode | translate}}
+									</option>
+								</select>
+								
+								<select class="select_competencias form-control" ng-model="evaluationCtrl.destacados[1]" required 
+									data-ng-change="evaluationCtrl.add()">
+									<option value="{{questions.questionsCode}}" ng-repeat="questions in evaluationCtrl.questionss" 
+										ng-if="evaluationCtrl.listSelect.indexOf(questions.questionsCode) == -1 || evaluationCtrl.destacados[1]==questions.questionsCode">{{'evaluation.'+questions.questionsCode | translate}}
+									</option>
+								</select>								
+								<select class="select_competencias form-control" ng-model="evaluationCtrl.destacados[2]" required 
+									data-ng-change="evaluationCtrl.add()">
+									<option value="{{questions.questionsCode}}" ng-repeat="questions in evaluationCtrl.questionss" 
+										ng-if="evaluationCtrl.listSelect.indexOf(questions.questionsCode) == -1 || evaluationCtrl.destacados[2]==questions.questionsCode">{{'evaluation.'+questions.questionsCode | translate}}</option>
+								</select>
+							</div>
+							
+							<h3 class="labelCompetencias centerGeneral" translate="evaluation.estadosMejora"></h3>
+							<label for="" class="textarea_label" translate="evaluation.estadosMejora"></label>
+							<div class="evaluacion_formselect centerGeneral">
+								<select class="select_competencias form-control" ng-model="evaluationCtrl.mejorar[0]" required data-ng-change="evaluationCtrl.add()">
+									<option value="{{questions.questionsCode}}" ng-repeat="questions in evaluationCtrl.questionss" 
+										ng-if="evaluationCtrl.listSelect.indexOf(questions.questionsCode) == -1 || evaluationCtrl.mejorar[0]==questions.questionsCode">
+											{{'evaluation.'+questions.questionsCode | translate}}
+									</option>
+								</select>
+								<select class="select_competencias form-control" ng-model="evaluationCtrl.mejorar[1]" required data-ng-change="evaluationCtrl.add()">
+									<option value="{{questions.questionsCode}}" ng-repeat="questions in evaluationCtrl.questionss" 
+										ng-if="evaluationCtrl.listSelect.indexOf(questions.questionsCode) == -1 || evaluationCtrl.mejorar[1]==questions.questionsCode">
+											{{'evaluation.'+questions.questionsCode | translate}}
+										</option>
+								</select>
+								<select class="select_competencias form-control" ng-model="evaluationCtrl.mejorar[2]" required data-ng-change="evaluationCtrl.add()">
+									<option value="{{questions.questionsCode}}" ng-repeat="questions in evaluationCtrl.questionss" 
+										ng-if="evaluationCtrl.listSelect.indexOf(questions.questionsCode) == -1 || evaluationCtrl.mejorar[2]==questions.questionsCode">
+											{{'evaluation.'+questions.questionsCode | translate}}
+										</option>
+								</select>
+							</div>
+						</td>
+					</tr>
+				</table>
+
+				<table class="table table_evaluacion table_evaluacion_textarea">
+					<tr>
+						<div class="table_titulo table_textarea_tittle">
+							<h2 class="text-center" translate="evaluation.comentarios"></h2>
+						</div>
+						<td colspan="7">
+							<h3 class="labelCompetencias" translate="evaluation.comentarios"></h3>
+							<label for="" class="textarea_label" translate="evaluation.comentariosSugerencia"></label>
+							<textarea maxlength="3000" class="table_textarea form-control" ng-model="evaluationCtrl.observaciones">
+								{{evaluationCtrl.observaciones}}
+							</textarea>
+						</td>
+					</tr>
+                    <tr>
+						<td colspan="7" ng-if="evaluationCtrl.showEvaluatorInput()">
+							<h3 class="labelCompetencias" translate="evaluation.comentariosEvaluador"></h3>
+							<label for="" class="textarea_label" translate="evaluation.comentariosSugerenciaEvaluador"></label>
+							<textarea maxlength="3000" class="table_textarea form-control" ng-model="evaluationCtrl.observacionesEvaluador">
+								{{evaluationCtrl.observacionesEvaluador}}
+							</textarea>
+						</td>
+                    </tr>
+				</table>
+			</div>
+			<div class="button_evaluaciones_submit">
+				<button id="buttonSaveAddEvaluation" class="boton_general mt_20" type="button"
+					data-ng-disabled="evaluationCtrl.disableButton"
+					data-ng-click="evaluationCtrl.submitForm(miFormulario.$valid,evaluationCtrl.respuesta,evaluationCtrl.observaciones)" 
+					translate="evaluation.button">
+				</button>
+			</div>
+            
+			<!--Ventana modal tipo miFormulario.$valid-->
+			<div class="modal fade" id="myModalGuardado12345" tabindex="-2" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content float_left">
+						<div class="modal-header modal_headerGuardado col-lg-12 col-md-12 col-xs-12">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body col-lg-12 col-md-12 col-xs-12">
+
+							<!--texto explicativo centrado -->
+							<div class="col-lg-12 col-md-12 col-xs-12 modal_Descripcion_Content" ng-switch="evaluationCtrl.msgModal">
+								<p ng-switch-when="correcto" class="modal_TextGuardado" ng-model="evaluationCtrl.modal1" translate="evaluation.guardarCorrecto"></p>
+								<p ng-switch-when="correctoNoNota" class="modal_TextGuardado" ng-model="evaluationCtrl.modal1" translate="evaluation.guardarCorrectoNoNota"></p>
+								<p ng-switch-when="incorrecto" class="modal_TextGuardado" ng-model="evaluationCtrl.modal2" translate="evaluation.guardarIncorrecto"></p>
+								<p ng-switch-when="noSeObserva" class="modal_TextGuardado" ng-model="evaluationCtrl.modal3" translate="evaluation.guardarNoSeObserva"></p>
+								<p ng-switch-when="guardarFalla" class="modal_TextGuardado" ng-model="evaluationCtrl.modal4" translate="evaluation.guardarFalla"></p>
+								<p ng-switch-when="errorRRHHAlta" class="modal_TextGuardado" ng-model="evaluationCtrl.modal5" translate="evaluation.errorRRHHAlta"></p>
+								<p ng-switch-when="errorNoEvaluable" class="modal_TextGuardado" ng-model="evaluationCtrl.modal6" translate="evaluation.errorNoEvaluable"></p>
+								<p ng-switch-when="errorNoAutoEvaluable" class="modal_TextGuardado" ng-model="evaluationCtrl.modal7" translate="evaluation.errorNoAutoEvaluable"></p>
+							</div>
+							<!--fin texto explicativo -->
+
+						</div>
+						<div class="footer_botonCentrado modal-footer op_30 col-lg-12 col-md-12 col-xs-12" ng-switch="evaluationCtrl.msgModal">
+							<button ng-switch-when="correcto" type="button" class="boton_general" data-ng-click="evaluationCtrl.closeDialog()" translate="evaluation.buttonCerrar"></button>
+							<button ng-switch-when="correctoNoNota" type="button" class="boton_general" data-ng-click="evaluationCtrl.closeDialog()" translate="evaluation.buttonCerrar"></button>
+							<button ng-switch-default type="button" class="boton_general" data-dismiss="modal" translate="evaluation.buttonCerrar"></button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--fin Ventana modal miFormulario.$valid-->
+			
+			<!-- ventana modal inicio-->
+			<div class="modal fade" id="myModaldescipcion1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content float_left">
+						<div class="modal-header col-lg-12 col-md-12 col-xs-12">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title text-center" id="myModalLabel">{{'evaluation.info.'+evaluationCtrl.codePregunta+'.nombre' | translate}}</h4>
+						</div>
+						<div class="modal-body col-lg-12 col-md-12 col-xs-12">
+
+							<!--texto explicativo centrado -->
+							<div class="col-lg-12 col-md-12 col-xs-12 modal_Descripcion_Content">
+								<h5 translate="evaluation.info.definicion"></h5>
+								<p class="">{{'evaluation.info.'+evaluationCtrl.codePregunta+'.definicionInfo' | translate}}</p>
+
+								<h5 translate="evaluation.info.comportamiento"></h5>
+								<div class="col-lg-12 col-md-12 col-xs-12 modal_Descripcion_Content" 
+									ng-bind-html="evaluationCtrl.definicionInfo">
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer content_button_modal top_30 col-lg-12 col-md-12 col-xs-12">
+							<button type="button" class="boton_general" data-dismiss="modal" 
+								translate="evaluation.buttonCerrar"></button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- -ventana modal fin -->
+
+		</form>
+	</section>
+</article>

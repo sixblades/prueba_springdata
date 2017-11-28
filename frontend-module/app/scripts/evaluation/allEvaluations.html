@@ -1,0 +1,88 @@
+<article class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="article" role="main">
+    <section class="col-lg-12 col-md-12 col-xs-12 main_content" role="region">
+        <div class="panel panel-info evaluacion_forms">
+            <legend translate="evaluationAll.layoutTitle" class="ng-scope"></legend>
+            <p translate="evaluationAll.layoutSubtitle" class="ng-scope"></p>
+            
+            <label translate="evaluationAll.year.combo"></label> 
+            <div class="evaluacion_formselect">
+                <select class="form-control" ng-model="allEvaluationsCtrl.year" 
+                    ng-options="year as year for year in allEvaluationsCtrl.years track by year"
+                    ng-change="allEvaluationsCtrl.changeYear()">
+                        <option value="" translate="evaluationAll.year.combo"></option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="centerGeneral" ng-if="allEvaluationsCtrl.showTable">
+            <p translate="evaluationAll.excel.title"></p>
+            <div class="evaluacion_formselect">
+                <button class="boton_general boton_allocation mt_20" type="submit" ng-disabled="allEvaluationsCtrl.excelButtonDisabled"
+                    translate="evaluationAll.excel.button"
+                    data-ng-click="allEvaluationsCtrl.getExcel()"></button>
+            </div>
+            <p ng-if="allEvaluationsCtrl.excelDownloading" translate="evaluationAll.excel.downloading"></p>
+        </div>
+        <table class="table table_consulta" ng-if="allEvaluationsCtrl.showTable">
+            <tbody>
+                <tr>
+                    <th translate="evaluationAll.cabecera.nomEmp"></th>
+                    <th translate="evaluationAll.cabecera.nomEval"></th>
+                    <th translate="evaluationAll.cabecera.direction"></th>
+                    <th translate="evaluationAll.cabecera.area"></th>
+                    <th translate="evaluationAll.cabecera.self"></th>
+                    <th translate="evaluationAll.cabecera.final"></th>
+                </tr>
+                <tr ng-repeat="eval in allEvaluationsCtrl.evaluations">
+                    <td class="cs1">
+                        <span translate="evaluationAll.cabecera.nomEmp"></span>
+                        <p>{{eval.employee.name}}</p>
+                    </td>
+                    <td class="cs1">
+                        <span translate="evaluationAll.cabecera.nomEval"></span>
+                        <p>{{eval.evaluator.name}}</p>
+                    </td>
+                    <td class="cs1">
+                        <span translate="evaluationAll.cabecera.direction"></span>
+                        <p>{{eval.direction.name}}</p>
+                    </td>
+                    <td class="cs1">
+                        <span translate="evaluationAll.cabecera.area"></span>
+                        <p>{{eval.area.name}}</p>
+                    </td>
+                    <td class="cs2">
+                        <span translate="evaluationAll.cabecera.self"></span>
+                        <p>
+                            {{eval.selfEvaluation}}
+                            <span class="circle" ng-class="'{{eval.selfEvaluationClass}}'"></span>
+                        </p>
+                    </td>
+                    <td class="cs2">
+                        <span translate="evaluationAll.cabecera.final"></span>
+                        <p>
+                            {{eval.finalEvaluation}}
+                            <span class="circle" ng-class="'{{eval.finalEvaluationClass}}'"></span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    
+     <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">{{allEvaluationsCtrl.Modal.title | translate}}</h4>
+                </div>
+                <div class="modal-body">
+                    <p>{{allEvaluationsCtrl.Modal.msg | translate}}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" ng-click="allEvaluationsCtrl.Modal.action()" data-dismiss="modal">{{allEvaluationsCtrl.Modal.button | translate}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<article>

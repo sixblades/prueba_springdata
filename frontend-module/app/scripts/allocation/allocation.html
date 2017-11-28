@@ -1,0 +1,186 @@
+<article class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="article" role="main" data-ng-init="allocationCtrl.onNgInit()">
+	<section class="col-lg-12 col-md-12 col-xs-12 main_content" role="region">	
+		<form>
+			<div class="panel panel-info evaluacion_forms">
+				<legend translate="allocation.seleccion"></legend>
+				<p translate="allocation.seleccionInfo"></p>
+				
+				<label translate="allocation.empleados"></label>
+				<div class="evaluacion_formselect">
+					<select class="form-control" ng-model="allocationCtrl.empleado"
+							ng-options="empleado.firstSurname + ' ' + empleado.secondSurname + ', ' + empleado.name for empleado in allocationCtrl.empleados"
+							ng-change="allocationCtrl.change(empleado.id)">
+						<option value="" translate="allocation.customEmpleados"></option>
+					</select>
+				</div>
+				
+				<label translate="allocation.mandos"></label> 
+				<div class="evaluacion_formselect">
+					<select class="form-control" ng-model="allocationCtrl.leader"
+						ng-options="leader.firstSurname + ' ' + leader.secondSurname + ', ' + leader.name for leader in allocationCtrl.leaders"
+						ng-change="allocationCtrl.changeMando()">
+						<option value="" translate="allocation.customEvaluadores"></option>
+					</select>
+				</div>	
+				
+				<p translate="allocation.seleccionInfo2"></p>
+				<div class="evaluacion_formselect">
+					<button class="boton_general boton_allocation mt_20" type="submit" translate="allocation.new.button"
+						data-ng-click="allocationCtrl.showNewAllocation()"></button>
+				</div>	
+			</div>
+		</form>
+		
+		<table class="table table_asignacion centerGeneral">
+			<tbody>
+				<tr>
+					<th translate="allocation.cabecera.nomEmp"></th>
+					<th translate="allocation.cabecera.nomEval"></th>
+					<th translate="allocation.cabecera.fechaDesde"></th>
+					<th translate="allocation.cabecera.fechaHasta"></th>
+					<th translate="allocation.cabecera.modificar"></th>
+				</tr>
+				<tr ng-repeat="asignacion in allocationCtrl.asignaciones">
+					<td class="cs1">
+						<span translate="allocation.cabecera.nomEmp"></span>
+						<p>{{asignacion.firstSurnameEmployee + ' ' + asignacion.secondSurnameEmployee + ', ' + asignacion.nameEmployee}}</p>
+					</td>
+					<td class="cs1">
+						<span translate="allocation.cabecera.nomEval"></span>
+						<p>{{asignacion.firstSurnameLeader + ' ' + asignacion.secondSurnameLeader + ', ' + asignacion.nameLeader}}</p>
+					</td>
+					<td class="cs3">
+						<span translate="allocation.cabecera.fechaDesde"></span>
+						<p>{{asignacion.dateFrom | date:'dd/MM/yyyy'}}</p>
+					</td>
+					<td class="cs4">
+						<span translate="allocation.cabecera.fechaHasta"></span>
+						<p>{{asignacion.dateUntil | date:'dd/MM/yyyy'}}</p>
+					</td>
+					<td class="cs4">
+						<span translate="allocation.cabecera.modificar"></span>
+						<a class="ico_editar_consulta" ng-click="allocationCtrl.obtenerId(asignacion)" href="javascript:void(0);"
+							ng-if="allocationCtrl.asignacion.dateUntil == null"></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+	
+	<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">{{allocationCtrl.Modal.title | translate}}</h4>
+			</div>
+			<div class="modal-body">
+				<p>{{allocationCtrl.Modal.msg | translate}}</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default boton_general" ng-click="allocationCtrl.Modal.action()" data-dismiss="modal">{{allocationCtrl.Modal.button | translate}}</button>
+			</div>
+			</div>
+		</div>  
+	</div>
+	
+	
+	<div class="modal fade" id="myModalNew" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<form>
+				<div class="modal-content float_left">
+					<div class="modal-header col-lg-12 col-md-12 col-xs-12">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title text-center" id="myModalLabel" translate="allocation.new.title"></h4>
+					</div>
+					<div class="modal-body col-lg-12 col-md-12 col-xs-12">
+						<div class="col-lg-12 col-md-12 col-xs-12 modal_Descripcion_Content">	
+							<label translate="allocation.new.empleado"></label> 
+							<div class="evaluacion_formselect">
+								<select class="form-control" ng-model="allocationCtrl.newAllocation.employeeId" required
+									ng-options="leader.id as leader.firstSurname + ' ' + leader.secondSurname + ', ' + leader.name for leader in allocationCtrl.empleados">
+									<option value="" translate="allocation.customEmpleados"></option>
+								</select>
+							</div>
+						</div>
+						<div class="col-lg-12 col-md-12 col-xs-12 modal_Descripcion_Content">	
+							<label translate="allocation.new.evaluador"></label> 
+							<div class="evaluacion_formselect">
+								<select class="form-control" ng-model="allocationCtrl.newAllocation.leaderId" required
+									ng-options="leader.id as leader.firstSurname + ' ' + leader.secondSurname + ', ' + leader.name for leader in allocationCtrl.leaders">
+									<option value="" translate="allocation.customEvaluadores"></option>
+								</select>
+							</div>
+						</div>
+						<div class="col-lg-12 col-md-12 col-xs-12 modal_Descripcion_Content"> 
+							<label translate="allocation.new.dateFrom"></label> 
+							<div class="evaluacion_formselect">
+								<div class="date" id="datetimepicker1">
+									<input calendar  class="form-control" type="text" placeholder="dd/mm/aaaa"  
+										data-ng-model="allocationCtrl.newAllocation.dateFrom" required/>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer content_button_modal top_30 col-lg-12 col-md-12 col-xs-12">
+							<button type="button" class="boton_general float_left" data-dismiss="modal" 
+								data-ng-click="allocationCtrl.cancelar()" translate="allocation.buttonCancelar"></button>
+							
+							<button class="boton_general mt_20" type="submit" translate="allocation.button"
+								data-ng-click="allocationCtrl.saveAllocation()"></button>
+						</div>
+					</div>
+				</div>
+			<form>
+		</div>
+	</div>
+	
+	<div class="modal fade" id="myModalModify" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content float_left">
+				<div class="modal-header col-lg-12 col-md-12 col-xs-12">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title text-center" id="myModalLabel" translate="allocation.modificacion"></h4>
+				</div>
+				<div class="modal-body col-lg-12 col-md-12 col-xs-12">
+					<div class="col-lg-12 col-md-12 col-xs-12 modal_Descripcion_Content">
+						<label class="mod_allocation" translate="allocation.mod.empleado"></label> 
+						{{allocationCtrl.allocationToMod.firstSurnameEmployee}} {{allocationCtrl.allocationToMod.secondSurnameEmployee}}, {{allocationCtrl.allocationToMod.nameEmployee}}  
+					</div>
+					<div class="col-lg-12 col-md-12 col-xs-12 modal_Descripcion_Content">
+						<label class="mod_allocation" translate="allocation.mod.fechaDesde"></label> 
+						{{allocationCtrl.allocationToMod.dateFrom | date:'dd/MM/yyyy'}}
+					</div>
+					<div ng-if="!allocationCtrl.showInputDate" class="col-lg-12 col-md-12 col-xs-12 modal_Descripcion_Content">
+						<label class="mod_allocation" translate="allocation.mod.fechaHasta"></label> 
+						{{allocationCtrl.allocationToMod.dateUntil | date:'dd/MM/yyyy'}}
+					</div>
+					<div ng-if="allocationCtrl.showInputDate" class="col-lg-12 col-md-12 col-xs-12 modal_Descripcion_Content"> 
+						<label class="mod_allocation" translate="allocation.mod.fechaHasta"></label> 
+						<div class="evaluacion_formselect">
+							<div class="date" id="datetimepicker1">
+								<input calendar datemin="allocationCtrl.allocationToMod.dateFrom"  class="form-control" type="text" placeholder="dd/mm/aaaa"  
+									data-ng-model="allocationCtrl.allocationToMod.dateUntil" required/>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-12 col-md-12 col-xs-12 modal_Descripcion_Content">	
+						<label translate="allocation.mod.evaluador"></label> 
+						<div class="evaluacion_formselect">
+							<select class="form-control" ng-model="allocationCtrl.allocationToMod.leaderId"
+								ng-options="leader.id as leader.firstSurname + ' ' + leader.secondSurname + ', ' + leader.name for leader in allocationCtrl.leaders">
+							</select>
+						</div>
+					</div>
+				</div>
+		
+				<div class="modal-footer content_button_modal top_30 col-lg-12 col-md-12 col-xs-12">
+					<button type="button" class="boton_general float_left" data-dismiss="modal" 
+						data-ng-click="allocationCtrl.cancelar()" translate="allocation.buttonCancelar"></button>
+					
+					<button class="boton_general mt_20" type="submit" translate="allocation.button"
+						data-ng-click="allocationCtrl.modificar()"></button>
+				</div>
+			</div>
+		</div>
+	</div>
+</article>

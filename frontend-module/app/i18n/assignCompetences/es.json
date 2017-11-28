@@ -1,0 +1,17 @@
+{
+    "assign.competences.select" : "Ponderaciones de puestos",
+    "assign.competences.selectInfo" : "Selecciona el puesto del que deseas administrar su ponderación",
+    "assign.competences.select.wageBands" : "Selecciona una banda salarial",
+    "assign.competences.select.wageBands.default" : "Selecciona una banda salarial",
+    "assign.competences.select.position" : "Selecciona la posición",
+    "assign.competences.select.position.default" : "Selecciona una posición",
+    "assign.competences.button.save" : "Guardar",
+    "assign.competences.modal.save.ok.title" : "Éxito",
+    "assign.competences.modal.save.ok" : "Las ponderaciones se han guardado correctamente.",
+    "assign.competences.modal.error.sum" : "La suma de todas las competencias no es válida. Debe ser 57 en caso de 25 competencias, y 42 en caso de 18.",
+    "assign.competences.modal.error.form.title" : "Error en el formulario",
+    "assign.competences.modal.ok" : "Aceptar",
+    "assign.competences.modal.buttonCerrar" : "Cerrar",
+    "assign.competences.evaluations.saved" : "Ya se han guardado evaluaciones este año con estos valores. No es posible actualizarlos.",
+    "assign.competences.lastyear" : "Los valores presentados a continuación son del año pasado. Por favor actualiza los valores al año actual."
+ }

@@ -1,0 +1,56 @@
+{
+    "eval": {
+        "leader": {
+            "alta": {
+                "evaluacion": "New Evaluation:",
+                "subtitulo": "Select the employee you want to make an evaluation:",
+                "empleados": "Employees:",
+                "mandos": "Leaders:",
+                "complete": "Fill the questionnaire that will appear next and save it once its finished.",
+                "comentarios": "Comments",
+                "observaciones": "If you wish, you can add comments to the evaluation:"
+            }
+        }
+    },
+    "Preg1": "1. IT Professional expertise",
+    "Preg2": "2. Determination",
+    "Preg3": "3. Ability to prioritize & schedule work",
+    "Preg4": "4. Development of intra-personal skills",
+    "Preg5": "5. Communication & negotiation",
+    "Preg6": "6. Self-motivation",
+    "Preg7": "7. Cooperation & commitment",
+    "Preg8": "8. Trustworthiness",
+    "Preg9": "9. Creativity & innovation",
+    "Preg10": "10. Proactivity & initiative",
+    "Preg11": "11. Adaptation to change",
+    "Preg12": "12. Continuous improvement",
+    "Preg13": "13. Client focus",
+    "Preg14": "14. Approach to quality",
+    "Preg15": "15. Result orientation",
+    "Preg16": "16. Decision making",
+    "Preg17": "17. Change management",
+    "Preg18": "18. Team building",
+    "Preg19": "19. Encouragement",
+    "Preg20": "20. Interpersonal skills development",
+    "Preg21": "21. Sustainability",
+    "Preg22": "22. Strategic vision",
+    "Preg23": "23. Empowerment & delegation",
+    "Preg24": "24. Excellence",
+    "Preg25": "25. Pride of belonging",
+    "Estado1": "Far below the expected",
+    "Estado2": "Below or worst than expected",
+    "Estado3": "Expected",
+    "Estado4": "Above or better than expected",
+    "Estado5": "Far above the expected",
+    "Estado6": "Not observed",
+    "answers": {
+        "title": "Questionnaire",
+        "field": "Questions",
+        "form": {
+            "button": {
+                "buttonGuardar": "Save",
+                "buttonActualizar": "Update"
+            }
+        }
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "errors": {
+        "403": {
+        	"title": "Acceso Denegado.",
+        	"description": "No tienes permisos de acceso a esta página."
+        },
+        "401": {
+        	"title": "Usuario no autorizado.",
+        	"description": "Tu usuario no está autorizado para entrar en la web. Comprueba las credenciales y vuelve a intentarlo."
+        },
+        "404": {
+         	"title": "Página no encontrada.",
+        	"description": "No existe la página solicitada."       	
+        }, 
+        "500": {
+            "title": "Error interno.",
+        	"description": "Lo sentimos se ha producido un error interno. Vuelve a cargar la página o entra de nuevo en la aplicación."       
+        }
+    }
+}

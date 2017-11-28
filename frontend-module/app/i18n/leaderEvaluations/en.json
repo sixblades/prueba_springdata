@@ -1,0 +1,15 @@
+{
+    "leadersEvaluation.title" : "Leaders Evaluation Consult",
+    "leadersEvaluation.layoutTitle" : "Select an evaluator",
+    "leadersEvaluation.layoutSubtitle" : "Select the evaluator who you would like to check its evaluations on the selected year",
+    "leadersEvaluation.defaultCombo" : "Select an evaluator",
+    "leadersEvaluation.defaultCombo.year" : "Select a year",
+    "leadersEvaluation.cabecera.nomEmp" : "Employee's Name",
+    "leadersEvaluation.cabecera.self" : "Self Assessment",
+    "leadersEvaluation.cabecera.final" : "Final Evaluation",
+    "leadersEvaluation.tabla.si" : "Yes",
+    "leadersEvaluation.tabla.no" : "No",
+    "leadersEvaluation.modal.error" : "There has been an error while processing your request",
+    "leadersEvaluation.modal.error.title" : "Error",
+    "leadersEvaluation.modal.ok" : "Accept"
+}

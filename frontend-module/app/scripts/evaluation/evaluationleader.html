@@ -1,0 +1,86 @@
+<article class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="article" role="main">
+	<section class="col-lg-12 col-md-12 col-xs-12 main_content" role="region">
+		<div class="panel panel-info evaluacion_forms">
+			<legend class="text-center" translate="eval.leader.alta.evaluacion"></legend>
+			<p translate="eval.leader.alta.subtitulo"></p>
+
+			<label translate="eval.leader.alta.empleados"></label>
+			<div class="evaluacion_formselect">
+				<select ng-model="evalLeaderCtrl.empleado.employeeId" 
+					ng-options="empleado as empleado.employeeId for empleado in evalLeaderCtrl.empleados" 
+					ng-change="evalLeaderCtrl.change(empleado.employeeId)">
+				</select>
+			</div>
+			<label translate="eval.leader.alta.mandos"></label>
+			<div class="evaluacion_formselect">
+				<select ng-model="evalLeaderCtrl.mando.employeeId" 
+					ng-options="mando as mando.employeeId for mando in evalLeaderCtrl.mandos" 
+					ng-change="evalLeaderCtrl.changeMando(mando.employeeId)"></select>
+			</div>
+			<p translate="eval.leader.alta.complete"></p>
+		</div>
+		<form name="miFormulario">
+			<div ng-repeat="competence in evalLeaderCtrl.competences" class="">
+				<div class="table_titulo">
+					<h2 class="text-center">{{competence.competenceCode}}</h2>
+				</div>
+				<table class="table table_evaluacion" 
+					ng-if="pillar.competenceId == competence.competenceId" 
+					ng-repeat="pillar in evalLeaderCtrl.pillars">
+					<tbody>
+						<tr>
+							<td class="table_titulo_Pilar" colspan="7">
+								<div>
+									<h3 class="text-center">{{pillar.pillar_code}}</h3>
+								</div>
+							</td>
+						</tr>
+
+						<tr class="table_literales_preguntas">
+							<td class="lt0">
+								<span>Preguntas</span>
+							</td>
+							<td class="lt{{states.id}}" ng-repeat="states in evalLeaderCtrl.statess">
+								<span class="text-center">{{states.statesCode | translate}}</span>
+							</td>
+						</tr>
+
+						<tr ng-if="questions.competenceId == competence.competenceId && questions.pillarId == pillar.pillarId" 
+							ng-repeat="questions in evalLeaderCtrl.questionss">
+							<th>
+								<a data-toggle="modal" data-target="#myModaldescipcion1">{{questions.questionsCode | translate}}</a>
+							</th>
+							<td class="respuesta" ng-repeat="states in statess">
+								<div>
+									<span class="text-center literal_movil">{{states.statesCode | translate}}</span>
+									<button class="bt{{states.id}}" 
+										ng-class="{activeBtn: $index == selected[questions.id]}" 
+										ng-model="evalLeaderCtrl.respuesta[questions.id]"
+										data-ng-click="respuesta[questions.id] = states.id;evalLeaderCtrl.select($index, questions.id)" 
+										name="{{questions.id}}" ng-value="{{states.id}}"></button>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<table class="table table_evaluacion">
+				<tr>
+					<div class="table_titulo">
+						<h2 class="text-center" translate="eval.leader.alta.comentarios"></h2>
+					</div>
+					<td colspan="7">
+						<label for="" class="textarea_label" translate="eval.leader.alta.observaciones"></label>
+						<textarea maxlength="3000" class="table_textarea" ng-model="evalLeaderCtrl.observaciones">
+							{{observaciones}}
+						</textarea>
+					</td>
+				</tr>
+			</table>
+			<button class="boton_general" type="submit" 
+				data-ng-click="evalLeaderCtrl.submitForm(respuesta,observaciones)">
+					{{'answers.form.button.buttonGuardar' | translate}}
+				</button>
+		</form>
+	</section>
+</article>

@@ -1,0 +1,205 @@
+{
+    "evaluation": {
+        "empleado": "Empleado: ",
+        "evaluador": "Evaluador: ",
+        "eval": "Evaluación",
+        "auto": "Autoevaluación",
+        "final": "Evaluación Final",
+        "alta": "Alta Evaluación:",
+        "altaFinal": "Alta Evaluación Final:",
+        "evaluacionContinua": "Selecciona el empleado al que desees realizar la evaluación continua:",
+        "evaluacionContinuaFinal": "Selecciona el empleado al que desees realizar la evaluación final:",
+        "evaluacionFinal": "Esta es una evaluación final. Si lo deseas puedes consultar las evaluaciones anteriores del empleado seleccionando Consulta evaluaciones del menú superior.",
+        "empleados": "Empleados:",
+        "mandos": "Mandos:",
+        "completar": "Completa el cuestionario que aparecerá a continuación y guárdalo una vez finalizado.",
+        "preguntas": "Preguntas",
+        "gestion": "Gestión",
+        "mando": "Mando",
+        "etica": "Ética",
+        "talento": "TALENT",
+        "actitud": "ATTITUDE",
+        "resultado": "BUSINESS",
+        "talentoActitud": "TALENT y ATTITUDE",
+        "resultadosBusiness": "BUSINESS",
+        "cultura": "VASS",
+        "estado1": "Muy por debajo de lo esperado",
+        "estado2": "Por debajo o peor de lo esperado",
+        "estado3": "Lo esperado",
+        "estado4": "Por encima o mejor de lo esperado",
+        "estado5": "Muy por encima de lo esperado",
+        "estado6": "No se Observa",
+        "preg1": "Expertise Técnico Profesional",
+        "preg2": "Resolución",
+        "preg3": "Capacidad de programar y priorizar",
+        "preg4": "Desarrollo de Habilidades Intrapersonales",
+        "preg5": "Comunicación y Negociación",
+        "preg6": "Automotivación",
+        "preg7": "Colaboración y Compromiso",
+        "preg8": "Confianza",
+        "preg9": "Creatividad e Innovación",
+        "preg10": "Proactividad e Iniciativa",
+        "preg11": "Adaptación al Cambio",
+        "preg12": "Mejora Continua",
+        "preg13": "Enfoque al Cliente",
+        "preg14": "Enfoque a la Calidad",
+        "preg15": "Enfoque a Resultados",
+        "preg16": "Toma de Decisiones",
+        "preg17": "Gestión del Cambio",
+        "preg18": "Equipazgo",
+        "preg19": "Motivación",
+        "preg20": "Desarrollo de Habilidades Interpersonales",
+        "preg21": "Sostenibilidad",
+        "preg22": "Visión Estratégica",
+        "preg23": "Empowerment & Delegación",
+        "preg24": "Excelencia",
+        "preg25": "Orgullo de Pertenencia",
+        "comentarios": "Comentarios",
+        "destacaMejora": "Resumen Competencial",
+        "comentariosSugerencia": "Si lo deseas puedes añadir algún comentario sobre la Evaluación:",
+        "comentariosSugerenciaEvaluador": "Comentarios del Evaluador:",
+        "estadosDestacados": "Elige las tres competencias en las que más destacas",
+        "estadosMejora": "Elige las tres competencias que debes potenciar",
+        "texarea": "Escribe aqui tus comentarios",
+        "button": "Guardar",
+        "print": "Imprimir",
+        "guardarCorrecto": "Guardado correctamente",
+        "guardarCorrectoNoNota": "Guardado correctamente, aunque la nota de la evaluación no ha podido guardarse",
+        "guardarIncorrecto": "Debes contestar a todas las preguntas. Gracias",
+        "guardarNoSeObserva": "Recuerda que sólo puedes indicar una competencia como no observable por pilar",
+        "guardarFalla": "Ha ocurrido un error, reintentalo más tarde o ponte en contacto con administración",
+        "errorRRHHAlta": "No es posible dar de alta evaluación no siendo lider",
+        "errorNoEvaluable": "No es posible dar de alta la autoevaluación no siendo evaluable",
+        "errorNoAutoEvaluable": "No es posible dar de alta la autoevaluación no siendo periodo de autoevaluación",
+        "buttonCerrar": "Cerrar",
+        "info": {
+            "definicion": "Definición:",
+            "comportamiento": "Comportamientos Evaluables:",
+            "preg1": {
+                "nombre": "Expertise Técnico Profesional",
+                "definicionInfo": "Conocimiento del mercado y de la actividad, estar actualizado",
+                "comportamientoInfo": "<li>¿Se mantiene al día de las últimas tendencias del mercado/actividad (webs, publicaciones, noticias sector y competencia, etc.)?</li><li>¿Establece relaciones (networking) internas y externas y participa en eventos relacionados con el sector/actividad en el que trabaja?.</li><li>En su caso, ¿domina el idioma o idiomas, hablado y escrito, que requiere su puesto?.</li>"
+            },
+            "preg2": {
+                "nombre": "Resolución",
+                "definicionInfo": "Capacidad de resolver situaciones rápida y eficazmente",
+                "comportamientoInfo": "<li>Ante imprevistos, problemas, conflictos o dificultades, ¿busca y coordina los recursos y apoyos necesarios para resolverlos?.</li><li>¿Es capaz de analizar la situación y plantear soluciones válidas?.</li><li>¿Sabe resolver situaciones críticas?.</li>"
+            },
+            "preg3": {
+                "nombre": "Capacidad de Programar y Priorizar",
+                "definicionInfo": "Capacidad de ordenar eficientemente su trabajo",
+                "comportamientoInfo": "<li>¿Define y programa las acciones, plazos y recursos requeridos de su tarea, proyecto o área?.</li><li>¿Diferencia y prioriza entre lo urgente y lo importante y entre lo importante y lo superfluo, gestionando eficientemente su tiempo?.</li>"
+            },
+            "preg4": {
+                "nombre": "Desarrollo de Habilidades Intrapersonales",
+                "definicionInfo": "Autoconocimiento y autocontrol",
+                "comportamientoInfo": "<li>¿Es consciente de sus fortalezas y reconoce con humildad sus debilidades?.</li><li>¿Actúa con confianza y seguridad en sí mismo, controlando y dominando sus emociones? ¿Es equilibrado?.</li><li>¿Demuestra fortaleza psicológica y anímica ante la adversidad (resiliencia)?.</li>"
+            },
+            "preg5": {
+                "nombre": "Comunicación y Negociación",
+                "definicionInfo": "Capacidad de escuchar, expresar conceptos e ideas de forma efectiva, persuadir e influir en los demás",
+                "comportamientoInfo": "<li>¿Escucha, empatiza, pregunta, comparte información y valora las contribuciones de los demás?.</li><li>¿Es ejemplar, correcto y afable en el trato?.</li><li>¿Argumenta de forma clara y coherente por escrito y verbalmente?.</li><li>¿Mantiene una imagen adecuada según la situación en la que se encuentre (oficina, cliente, reunión)?</li>"
+            },
+            "preg6": {
+                "nombre": "Automotivación",
+                "definicionInfo": "Darse motivos para actuar",
+                "comportamientoInfo": "<li>¿Disfruta y encuentra sentido a su trabajo, de manera constante y con optimismo?.</li><li>¿Trabaja con intensidad y se marca objetivos retadores, mostrando esfuerzo por conseguirlos y superarlos?.</li>"
+            },
+            "preg7": {
+                "nombre": "Colaboración y Compromiso",
+                "definicionInfo": "Colaboración en la decisión y compromiso con la meta común",
+                "comportamientoInfo": "<li>¿Es leal, coopera y  comparte recursos y conocimientos en el equipo?.</li><li>¿Asume las decisiones del equipo como propias, apoya e instrumenta las directivas que recibe?.</li><li>Como miembro de un equipo, ¿Está comprometido y sacrifica sus intereses y objetivos particulares si la meta común lo requiere?.</li>"
+            },
+            "preg8": {
+                "nombre": "Confianza",
+                "definicionInfo": "Construye relaciones personales de calidad",
+                "comportamientoInfo": "<li>¿Crea un buen clima de trabajo a su alrededor y evita las críticas y rumores?.</li><li>¿Es ejemplar en su actuación inspirando confianza en los demás?.</li>"
+            },
+            "preg9": {
+                "nombre": "Creatividad e Innovación",
+                "definicionInfo": "Crea, promueve y aplica novedades para obtener resultados",
+                "comportamientoInfo": "<li>¿Anticipa, descubre, desarrolla y propone nuevas ideas, nuevas formas de trabajar y nuevos productos/servicios con creatividad?</li><li>¿Aplica nuevas ideas, productos, servicios, prácticas y procedimientos para la mejora de resultados?</li>"
+            },
+            "preg10": {
+                "nombre": "Proactividad e Iniciativa",
+                "definicionInfo": "Hacer que las cosas sucedan",
+                "comportamientoInfo": "<li>¿Busca respuestas a problemas y nuevos desafíos en vez de esperar a que suceda algo?</li><li>¿Es capaz de actuar anticipadamente para crear oportunidades?</li><li>¿Tiene predisposición a emprender acciones sin necesidad de un requerimiento previo?</li>"
+            },
+            "preg11": {
+                "nombre": "Adaptación al Cambio",
+                "definicionInfo": "Dinamismo y flexibilidad ante variaciones internas y externas",
+                "comportamientoInfo": "<li>¿Afronta positiva y constructivamente los cambios en el entorno y en el interior de VASS, adaptándose con rapidez y flexibilidad a los mismos?.</li><li>¿Asimila con rapidez nuevas ideas, recursos, procedimientos, conocimientos, etc.. y los utiliza en el trabajo diario?</li>"
+            },
+            "preg12": {
+                "nombre": "Mejora Continua",
+                "definicionInfo": "Esfuerzo por superarse en el día a día",
+                "comportamientoInfo": "<li>¿Propone e implanta acciones de mejora en su trabajo?.</li><li>¿Aprende de sus errores y pone los medios para que no vuelva a ocurrir?.</li><li>¿Acepta con buen talante las criticas, sugerencias y acciones de mejora en su trabajo?</li><li>¿Acepta y muestra predisposición a buscar nuevas oportunidades de desarrollo, nuevos desafíos y retos profesionales?</li>"
+            },
+            "preg13": {
+                "nombre": "Enfoque al Cliente",
+                "definicionInfo": "Actitud permanente por detectar y satisfacer las necesidades y prioridades del cliente interno y externo",
+                "comportamientoInfo": "<li>¿Se pone en lugar del cliente, entiende y conoce sus necesidades y expectativas y se enfoca en su satisfacción?.</li><li>¿Cuenta con la plena confianza del cliente porque conoce su negocio, resuelve sus problemas y muestra interés y compromiso con cada cliente?.</li><li>¿Defiende y representa al cliente en VASS y a VASS en el cliente?.</li><li>¿Realiza un esfuerzo planificado y sostenido en la relación con el cliente?.</li><li>¿Tiene al cliente siempre presente en la realización de sus actividades?</li>"
+            },
+            "preg14": {
+                "nombre": "Enfoque a la Calidad",
+                "definicionInfo": "Búsqueda de la calidad en todas las facetas del trabajo diario",
+                "comportamientoInfo": "<li>¿Tiene preocupación constante y realiza su trabajo en base a unos estándares de calidad y tiempo en todas las situaciones?</li>"
+            },
+            "preg15": {
+                "nombre": "Enfoque a Resultados",
+                "definicionInfo": "Orientado a cumplir los objetivos marcados",
+                "comportamientoInfo": "<li>¿Cumple los objetivos operativos marcados (tangibles e intangibles) eficazmente?</li><li>¿Cumple los objetivos económicos en los plazos establecidos eficientemente?</li><li>¿Evalúa de forma regular el grado de consecución de los objetivos?</li>"
+            },
+            "preg16": {
+                "nombre": "Toma de Decisiones",
+                "definicionInfo": "Capacidad de elección",
+                "comportamientoInfo": "<li>¿Afronta con responsabilidad la decisión cuando tiene que decidir?</li><li>¿Se hace responsable de sus decisiones?</li><li>¿Se preocupa por informarse adecuadamente?.</li><li>¿Minimiza riesgos y actúa con oportunidad?</li>"
+            },
+            "preg17": {
+                "nombre": "Gestión del Cambio",
+                "definicionInfo": "Lidera el cambio",
+                "comportamientoInfo": "<li>¿Analiza y comprende las implicaciones y consecuencias de los cambios?</li><li>¿Evalúa sistemáticamente el entorno y se anticipa a las variaciones del mismo?.</li><li>¿Promueve iniciativas de cambio y vence las resistencias dentro de su equipo?</li><li>¿Diseña y ejecuta la estrategia para la implantación del cambio?</li>"
+            },
+            "preg18": {
+                "nombre": "Equipazgo",
+                "definicionInfo": "Crea y lidera equipos líderes",
+                "comportamientoInfo": "<li>¿Organiza el equipo de trabajo y fomenta el trabajo en equipo?</li> <li>¿Coordina y desarrolla el talento en su equipo?</li><li>¿Respeta a su equipo y delimita responsabilidades?</li><li>¿Hace cumplir las normas y explica las razones?</li><li>Fomenta la colaboración y el compromiso del equipo?</li><li>¿Promueve la participación para la decisión?</li>"
+            },
+            "preg19": {
+                "nombre": "Motivación",
+                "definicionInfo": "Mueve a otros a la acción",
+                "comportamientoInfo": "<li>¿Incentiva adecuadamente a sus subordinados (motivación extrínseca)?</li><li>¿Enriquece el trabajo de sus subordinados (motivación intrínseca)?</li><li>¿Da sentido al trabajo de sus subordinados (motivación trascendente)?</li>"
+            },
+            "preg20": {
+                "nombre": "Desarrollo de Habilidades Interpersonales",
+                "definicionInfo": "Capacidad de conocer e influir en los demás",
+                "comportamientoInfo": "<li>¿Influye en sus subordinados para el logro de resultados?</li><li>¿Desarrolla a sus subordinados planteándoles puntos de mejora?</li><li>¿Conoce a sus subordinados?</li><li>¿Hace frente a la gestión de conflictos, conciliando posiciones diferentes para llegar a acuerdos?</li>"
+            },
+            "preg21": {
+                "nombre": "Sostenibilidad",
+                "definicionInfo": "Define y alinea hacia una meta común sostenible a largo plazo",
+                "comportamientoInfo": "<li>¿Se preocupa por satisfacer a sus stakeholders (cliente, colaboradores, proveedores, accionistas…) y lograr su compromiso y confianza?</li><li>¿Equilibra presente/corto-plazo y futuro/largo-plazo, resultados tangibles e intangibles?</li><li>¿Señala la meta y determina los objetivos para alcanzarla?</li>"
+            },
+            "preg22": {
+                "nombre": "Visión Estratégica",
+                "definicionInfo": "Actúa con lo posible para lograr lo deseable",
+                "comportamientoInfo": "<li>¿Señala la estrategia para alcanzar la meta?</li><li>¿Detecta oportunidades estratégicas?</li><li>¿Piensa, decide y actúa con una visión de conjunto y a futuro?</li>"
+            },
+            "preg23": {
+                "nombre": "Empowerment & Delegación",
+                "definicionInfo": "Dar responsabilidad e iniciativa a otros",
+                "comportamientoInfo": "<li>¿Establece objetivos claros de desempeño y asigna las correspondientes responsabilidades?</li><li>¿Delega, establece retos y desafíos y hace seguimiento y da feedback?</li><li>¿Fomenta el compromiso y la iniciativa en su equipo de trabajo?</li><li>¿Desarrolla acciones para mejorar el talento y las capacidades de su equipo?</li>"
+            },
+            "preg24": {
+                "nombre": "Excelencia",
+                "definicionInfo": "Espíritu de servicio y comportamiento ético",
+                "comportamientoInfo": "<li>¿Su comportamiento y las decisiones que toma se ajustan a la legalidad y son acordes a los valores y código ético de la organización?</li><li>¿Tiene sentido del deber y compromiso con el esfuerzo y el trabajo bien hecho?</li><li>¿Actúa con integridad y ejemplaridad generando confianza y credibilidad?</li><li>¿Actúa con justicia, prudencia y equidad, anteponiendo los intereses de VASS a los personales?</li>"
+            },
+            "preg25": {
+                "nombre": "Orgullo de Pertenencia",
+                "definicionInfo": "Siente VASS y lo transmite",
+                "comportamientoInfo": "<li>¿Muestra orgullo de pertenencia y es notable su compromiso con la empresa en todas las situaciones?</li><li>¿Conoce los valores y cultura de VASS, los vive y asume, defiende y promueve como propios?.</li><li>¿Defiende los intereses y el prestigio de VASS dentro y fuera de la Compañía, en todo momento?</li>"
+            }
+        }
+    }
+}

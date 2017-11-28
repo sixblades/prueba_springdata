@@ -1,0 +1,33 @@
+{
+    "evaluationAll" : {
+        "title" : "Consulta general de Evaluaciones",
+        "layoutTitle" : "Consulta general de evaluaciones",
+        "layoutSubtitle" : "Selecciona un año para consultar las evaluaciones de toda la plantilla. Ten en cuenta que es un proceso que puede tomar unos minutos. Por favor, se paciente.",
+        "year" : {
+            "combo": "Selecciona un año"
+        },
+        "cabecera" : {
+            "nomEmp": "Empleado",
+            "mail": "E-Mail",
+            "nomEval": "Evaluador",
+            "direction" : "Dirección",
+            "area" : "Área",
+            "self" : "Autoevaluación",
+            "final" : "Evaluación Final"
+        },
+        "tabla" : {
+            "si" : "Sí",
+            "no" : "No"
+        },
+        "excel" : {
+            "title" : "Si lo deseas también puedes descargar los resultados en formato Excel.",
+            "button" : "Descargar",
+            "downloading" : "Se está generando el Excel y se descargará automaticamente. Puede tardar unos minutos, por favor no cierres ni refresques la ventana."
+        },
+        "modal" : {
+            "title" : "Error",
+            "msg" : "Ha ocurrido un error en su solicitud.",
+            "ok" : "Aceptar"
+        }
+    }
+}

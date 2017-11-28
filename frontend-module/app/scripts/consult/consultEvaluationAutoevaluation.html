@@ -1,0 +1,218 @@
+<article class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="article" role="main">
+	<section class="col-lg-12 col-md-12 col-xs-12 main_content" role="region">
+        
+        
+        <div class="panel panel-info evaluacion_forms">
+            <legend translate="consult.evalauto.seleccion"></legend>
+            <p translate="consult.evalauto.seleccionInfo"></p>
+            <label translate="consult.evalauto.empleados"></label>
+            <div class="evaluacion_formselect" ng-if="consultEvalAutoCtrl.isVisibleLeader">
+                <select class="form-control" ng-model="consultEvalAutoCtrl.empleado.info"
+                    ng-options="empleado.firstSurnameEmployee + ' ' + empleado.secondSurnameEmployee + ', ' + empleado.nameEmployee for empleado in consultEvalAutoCtrl.empleadosLeaderUser"
+                    ng-change="consultEvalAutoCtrl.getEvaluationsEmployee(consultEvalAutoCtrl.empleado.info.employeeId)">
+                        <option value="" translate="consult.evalauto.select.combo.employee"></option>
+                </select>
+            </div>
+            <div class="evaluacion_formselect" ng-if="consultEvalAutoCtrl.isVisibleMando">
+                <select class="form-control" ng-model="consultEvalAutoCtrl.empleado.info"
+                    ng-options="empleado.firstSurname + ' ' + empleado.secondSurname + ', ' + empleado.name for empleado in consultEvalAutoCtrl.empleados track by empleado.id"
+                    ng-change="consultEvalAutoCtrl.getEvaluationsEmployee(consultEvalAutoCtrl.empleado.info.id)">
+                        <option value="" translate="consult.evalauto.select.combo.employee"></option>
+                </select>
+            </div>
+            <label translate="consult.evalauto.evaluadores" ng-if="consultEvalAutoCtrl.isVisibleMando"></label> 
+            <div class="evaluacion_formselect" ng-if="consultEvalAutoCtrl.isVisibleMando">
+                <select class="form-control" ng-model="consultEvalAutoCtrl.leader.info"
+                        ng-options="leader.firstSurname + ' ' + leader.secondSurname + ', ' + leader.name for leader in consultEvalAutoCtrl.leaders track by leader.id"
+                        ng-change="consultEvalAutoCtrl.changeEvaluator(consultEvalAutoCtrl.leader.info.id)">
+                        <option value="" translate="consult.evalauto.select.combo.leader"></option>
+                </select>
+            </div>	
+            <label translate="consult.evalauto.year"></label> 
+            <div class="evaluacion_formselect">
+                <select class="form-control" ng-model="consultEvalAutoCtrl.year"
+                        ng-options="i for i in consultEvalAutoCtrl.years" ng-change="consultEvalAutoCtrl.changeYear()">
+                        <option value="" translate="consult.evalauto.select.combo.year"></option>
+                </select>
+            </div>	
+        </div>
+        
+        <div ng-if="consultEvalAutoCtrl.finalEvaluation">
+            <h5 class="centerGeneral comparativa_explain" ng-bind-html="'consult.evalauto.explicacion' | translate" class="centerGeneral textoAutoevaluacion"></h5>
+            <table class="table table_consulta">
+                <tbody>
+                    <tr>
+                        <th translate="consult.evalauto.cabecera.fecha"></th>
+                        <th translate="consult.evalauto.cabecera.nomEmp"></th>
+                        <th translate="consult.evalauto.cabecera.nomEval"></th>
+                        <th translate="consult.evalauto.cabecera.tipoeval"></th>
+                    </tr>
+                    <tr>
+                        <td class="cs1">
+                            <p>{{consultEvalAutoCtrl.metadata.autoEvaluation.creationDate | date:'dd-MM-yyyy'}}</p>
+                        </td>
+                        <td class="cs2">
+                            <p>{{consultEvalAutoCtrl.metadata.autoEvaluation.employeeName}}</p>
+                        </td>
+                        <td class="cs3">
+                            <p>{{consultEvalAutoCtrl.metadata.autoEvaluation.leaderName}}</p>
+                        </td>
+                        <td class="cs4">
+                            <p>{{consultEvalAutoCtrl.metadata.autoEvaluation.evaluationType}}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="cs1">
+                            <p>{{consultEvalAutoCtrl.metadata.finalEvaluation.creationDate | date:'dd-MM-yyyy'}}</p>
+                        </td>
+                        <td class="cs2">
+                            <p>{{consultEvalAutoCtrl.metadata.finalEvaluation.employeeName}}</p>
+                        </td>
+                        <td class="cs3">
+                            <p>{{consultEvalAutoCtrl.metadata.finalEvaluation.leaderName}}</p>
+                        </td>
+                        <td class="cs4">
+                            <p>{{consultEvalAutoCtrl.metadata.finalEvaluation.evaluationType}}</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+			<div ng-repeat="competence in consultEvalAutoCtrl.competences" class="centerGeneral">
+		        <table class="table table_evaluacion" ng-if="pillar.competenceId == competence.competenceId" 
+                        ng-repeat="pillar in consultEvalAutoCtrl.pillars">
+    	            <tbody>
+                        <div class="table_titulo">
+                            <h2 class="text-center" ng-if="competence.competenceCode != undefined">
+                                {{'evaluation.'+competence.competenceCode | translate}}
+                            </h2>
+                        </div>
+						<tr>
+							<td class="pilar_{{pillar.pillarCode}}" colspan="7">
+								<div>
+									<h3  class="text-center">{{'evaluation.'+pillar.pillarCode | translate}}</h3>
+								</div>
+							</td>
+						</tr>
+						<tr class="table_literales_preguntas">
+							<th class="lt0">
+								<span translate="consult.evalauto.preguntas"></span>
+							</th>
+							<th class="lt0">
+								<span translate="consult.evalauto.autoevaluation"></span>
+							</th>
+							<th class="lt0">
+								<span translate="consult.evalauto.finalevaluation"></span>
+							</th>
+						</tr>
+                        <tr ng-if="item.competenceId == competence.competenceId && item.pillarId == pillar.pillarId" 
+                            ng-repeat="item in consultEvalAutoCtrl.finalEvaluation.respuesta track by $index">
+                            <th>
+								<a data-toggle="modal" data-target="#myModaldescripcion1" 
+                                    ng-click="consultEvalAutoCtrl.getQuestionCode(item.questionId)">
+                                        {{'evaluation.' + item.questionId | translate}}
+                                </a>
+			                <td class="respuesta ta-left">
+                                <input type="text" ng-value="consultEvalAutoCtrl.autoEvaluation.respuesta[$index].label"
+                                    class="{{consultEvalAutoCtrl.autoEvaluation.respuesta[$index].class}}"/>
+                            </td>
+			                <td class="respuesta ta-left">
+                                <input type="text" class="{{item.class}}" ng-value="item.label"/>
+			                </td>
+		                    </th>
+                        </tr>
+		       		</tbody>
+		        </table>
+			</div>
+            
+            
+		    <div class="clase_print_observacion_left centerGeneral">
+			    <table class="table table_evaluacion table_evaluacion_textarea">
+					<tr>
+					<div class="table_titulo table_textarea_tittle">
+						<h2 class="text-center" translate="consult.evalauto.destacaMejora"></h2>
+					</div>
+	                 <td colspan="7">
+	                  		<h3 class="labelCompetencias"  translate="consult.evalauto.estadosDestacados"></h3>
+	                  		<label for="" class="textarea_label centerGeneral" translate="consult.evalauto.estadosDestacados"></label>
+	                  		<div class="evaluacion_formselect centerGeneral">
+                                <div class="autoevaluacion centerGeneral">
+                                    <span class="textoAutoevaluacion" translate="consult.evalauto.autoevaluation"></span>
+                                    <span class="textoAutoevaluacion" translate="consult.evalauto.finalevaluation"></span>
+                                </div>
+
+                                  <div ng-repeat="item in consultEvalAutoCtrl.finalEvaluation.destacados track by $index">
+                                     <span>
+                                        <input type="text" value="{{'evaluation.' + consultEvalAutoCtrl.autoEvaluation.destacados[$index] | translate}}"/>
+                                     </span>
+                                     <span>
+                                        <input type="text" value="{{'evaluation.' + item | translate}}"/>
+                                     </span>
+                                  </div>
+						    </div>
+							<h3 class="labelCompetencias"  translate="consult.evalauto.estadosMejora"></h3>
+							<label for="" class="textarea_label centerGeneral" translate="consult.evalauto.estadosMejora"></label>
+							<div class="evaluacion_formselect centerGeneral">
+                                <div class="autoevaluacion centerGeneral">
+                                    <span class="textoAutoevaluacion" translate="consult.evalauto.autoevaluation"></span>
+                                    <span class="textoAutoevaluacion" translate="consult.evalauto.finalevaluation"></span>
+                                </div>
+
+                                  <div ng-repeat="item in consultEvalAutoCtrl.finalEvaluation.mejorar track by $index">
+                                     <span>
+                                        <input type="text" value="{{'evaluation.' + consultEvalAutoCtrl.autoEvaluation.mejorar[$index] | translate}}"/>
+                                     </span>
+                                     <span>
+                                        <input type="text" value="{{'evaluation.' + item | translate}}"/>
+                                     </span>
+                                  </div>
+						    </div>				
+	                  </td>
+					</tr>
+				</table>
+        </div>
+	</section>
+    
+    
+    <div class="modal fade" id="myModaldescripcion1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content float_left">
+                <div class="modal-header col-lg-12 col-md-12 col-xs-12">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title text-center" id="myModalLabel">{{'evaluation.info.'+consultEvalAutoCtrl.codePregunta+'.nombre' | translate}}</h4>
+                </div>
+                <div class="modal-body col-lg-12 col-md-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-xs-12 modal_Descripcion_Content">
+                        <h5 translate="evaluation.info.definicion"></h5>
+                        <p class="">{{'evaluation.info.'+consultEvalAutoCtrl.codePregunta+'.definicionInfo' | translate}}</p>
+                        <h5 translate="evaluation.info.comportamiento"></h5>
+                        <div class="col-lg-12 col-md-12 col-xs-12 modal_Descripcion_Content" ng-bind-html="consultEvalAutoCtrl.definicionInfo">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer content_button_modal top_30 col-lg-12 col-md-12 col-xs-12">
+                    <button type="button" class="boton_general" data-dismiss="modal" 
+                        translate="consult.evalauto.buttonCerrar" ></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">{{consultEvalAutoCtrl.Modal.title | translate}}</h4>
+            </div>
+            <div class="modal-body">
+                <p>{{consultEvalAutoCtrl.Modal.msg | translate}}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" ng-click="consultEvalAutoCtrl.Modal.action()" data-dismiss="modal">{{consultEvalAutoCtrl.Modal.button | translate}}</button>
+            </div>
+            </div>
+        </div>  
+    </div>
+</article>

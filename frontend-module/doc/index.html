@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	</head>
+<title>VASS & You</title>
+
+<xmp theme="cerulean" style="display:none;">
+# Frontend Module
+
+Este módulo, a diferencia del resto, es un proyecto JavaScript y no Java. Su contrucción, basada en Node.js,
+se realiza con [Grunt] y sus test unitarios se realizan con [Jasmine] y [Protractor].
+
+Los primeros pasos a realizan serán los siguientes, instalar [Git] y configurar una cuenta.
+
+Posteriormente instalar [Node.js], y ejecutar el siguiente comando en un consola
+desde la carpeta donde este contenido el proyecto.
+```
+npm install
+```
+
+Esto instalará en la carpeta *node_modules* las dependencias definidas en el fichero *package.json*. Estas son las dependencias
+necesarias para la construcción y ejecución en entorno de desarrollo de la aplicación.
+
+El siguiente paso será instalar las dependencias de [Bower], definidas en el fichero bower.json. Estas son las dependencias con aquellas
+librerías JavaScript que necesite la aplicación en tiempo de ejecución.
+```
+bower install
+```
+
+En caso de que este paso lanze un error, es posible que Bower no se haya instalado a partir del fichero *package.json*. En este caso deberemos forzar su instalación con el siguiente comando:
+```
+npm install -g bower
+```
+
+Una vez hecho podremos lanzar la aplicación usando Grunt.
+```
+grunt serve
+```
+
+Al igual que con Bower, es posible que no se haya instalado Grunt correctamente. En este caso deberemos lanzar el siguiente comando:
+```
+npm install -g grunt-cli
+```
+
+Grunt solo lanzará la aplicación web, para que sea totalmente funcional, deberá lanzarse también la aplicación Java.
+
+### Estructura del proyecto
+
+- app: Donde reside toda la lógica de la aplicación. HTML, componentes Angular, ficheros de idiomas...
+- bower_components: Carpeta donde se instalan las dependencias obtenidas mediante Bower.
+- dist: Carpeta de construcción de la aplicación.
+- doc: Carpeta de documentación.
+- node: Carpeta de instalación de node. Usada solo con la construcción del proyecto usando Maven.
+- node_modules: Carpeta donde se instalan las dependencias de Node.js
+- target: Carpeta de construcción de Java. Creada por la construción de Maven.
+- test: Carpeta donde residen los tests de la aplicación.
+
+### Aplicación Web
+La aplicación Web está realizada enteramente en [AngularJS]. AngularJS es un framework que lleva el modelo MVC al navegador.
+Entre los componentes que forman parte de Angular, lo más comunes son servicios, directivas y controladores.
+
+En recomendable si no se tiene experiencia en AngularJS, que antes de continuar, 
+se realize el [tutorial] de su página web.
+
+
+#### Componentes AngularJS
+
+- Scope: Es el componente principal de Angular. Un Scope es el modelo de la aplicación, el contexto de ejecución de las funciones.
+Donde se definen la lógica de la aplicación, los métodos, las propiedades de la vista, etc.
+
+- Directivas: Los componentes más primordiales de AngularJS. Permiten dotar de un comportamiento a los elementos HTML e incluso
+crear nuestros propios componentes.
+
+- Controladores: Funciones normales que hacen uso del Scope. En esta función definiremos lógica, variables, métodos...
+
+- Servicios: Proporcionan una manera de comunicarnos con el exterior (HTTP) y entre controladores, además de proporcionarnos
+funcionalidades comunes.
+
+
+### Organización
+
+#### app
+El punto de entrada de la aplicación es el fichero *app.js*. En este fichero se define el módulo que contendrá toda la aplicación,
+y los módulos externos que necesita.
+```javascript
+angular.module('mentoringApp', 
+	['LocalStorageModule', 'tmh.dynamicLocale', 'ngResource', 'ui.router', 'ngCookies', 'pascalprecht.translate',
+		'ngCacheBuster', 'infinite-scroll', 'tc.chartjs']);
+```
+El módulo recibirá el nombre *mentoringApp*, y tendrá dependencia con los módulos *LocalStorageModule*, *tmh.dynamiLocale*, etc.
+Esta es la primera función de la aplicación Angular que se ejecutará.
+
+La siguiente función en ejecutarse, será la función config, dentro del fichero *app.config.js*. 
+En este fichero se ejecuta la función config 3 veces, en el orden en que están definidas.
+
+La primera ejecución, define un [decorator] sobre el servicio $log de AngularJS. El objetivo de este decorator es que cada vez
+que se loguee un evento de error en servidor, se envíe una petición al servidor para que este tenga constancia también del error.
+
+La segunda ejecución, configura ciertos aspectos relaccionados con los estados de la aplicación, las peticiones HTTP, y los idiomas.
+
+- Establece el nombre de la cookie y cabecera de Angular para evitar los ataques CSRF. En el apartado Security Considerations 
+que se encuentra la documentación oficial se explica esto. https://docs.angularjs.org/api/ng/service/$http
+- Crea un interceptor para que las peticiones erroneas HTTP, logueen este evento como un error. Por la priemra ejecución de la función
+config, esto hará que se lance otra petición de logging al servidor. 
+- Configura el uso de módulo cacheBuster. Esto hará que las peticiones al api lleven el parámetro cacheBuster cuyo valor será aleatorio 
+para cada petición. Esto evitará que las peticiones de negocio puedan cachearse por los navegadores.
+- Configura los estados iniciales de la aplicación.
+- Configura el modulo multiidioma. Idioma por defecto, plantilla de ruta de los ficheros, y almacenamiento del idioma seleccionado.
+
+La tercera y última función config, configura el idioma por defecto para los formateos de fecha, número y demás de AngularJS.
+
+La siguiente función en ejecutarse será la función run, dentro del fichero *app.run.js*. En esta función se definen eventos que escuchará
+la aplicación y sus respuestas. Estos eventos son:
+
+- Inicio de cambio de estado $stateChangeStart.
+- Cambio de estado finalizado $stateChangedSuccess.
+- HTML de vista cargado por un estado $viewContentLoaded.
+
+También se define una función a nivel global, dentro de [$rootScope], que servirá para volver a la página anterior.
+
+#### Estados
+La aplicación está configurada como una SPA (Single Page Application). Esto quiere decir que la página nunca se recarga, sino que
+va cambiando de estado en función de las aciones del usuario. Un cambio de estado implica que el HTML que se que se está visualizando
+cambia. De este modo también cambiarán el $scope de la página, controladores, servicios y directivas presentes.
+
+Para manejar los estados, se emplea el módulo [ui-router]. Este módulo usa el atributo ui-view, que es donde se visualizará el estado.
+Así en el fichero index.html tenemos lo siguiente:
+```html
+<div class="" ui-view="header"></div>
+<div class="clase_print">
+	<div class="" ui-view="content"></div>
+</div>
+```
+Hay definidos dos elementos div, con un atributo ui-view cada uno. Uno se refiere al header, y otro al content. Así pues estas
+serán las capas que contendrán la visualización de la página en los distintos estados.
+
+Hemos comentado antes que en el fichero *app.config.js* se definen los estados iniciales de la aplicación. Se hace del siguiente modo:
+
+Primero incluimos el módulo ui.router en la aplicación.
+```javascript
+angular.module('mentoringApp', ['ui.router', ...]);
+```
+Posteriormente, configuramos los estados en la función config:
+```javascript
+angular.module('mentoringApp').config(function($stateProvider, $urlRouterProvider, ...){
+	
+	// Estado por defecto de la aplicacion
+	$urlRouterProvider.otherwise('/');
+	
+	// Estado site. Al ser abstract, debera usarse un estado que herede de este
+	$stateProvider.state('site', {
+		abstract: true,
+		// HTML de la vista, en este caso definimos la etiqueta Header. -> <div ui-view="header"/>
+		views: {
+			'header@': {
+				templateUrl: 'scripts/components/header/header.html'
+			}
+		},
+		// Funciones que deben ejecutarse antes de cambiar el estado.
+		// Obtención de ficheros de idiomas y autorización de la página
+		resolve: {
+			authorize: ['Auth', function (Auth) { return Auth.authorize();} ],
+			translatePartialLoader: ['$translate', '$translatePartialLoader',
+				function ($translate, $translatePartialLoader) {
+					$translatePartialLoader.addPart('global');
+					$translatePartialLoader.addPart('language');
+					return $translate.refresh();
+			}]
+		}
+		
+	// Definición del estado principal. Tiene como padre a site, por lo que hereda todas sus propiedades.
+	}).state('main', {
+		parent: 'site',
+		name: 'main',
+		// URL del navegador asociada a esta vista
+		url: '/',
+		data: { roles: [] },
+		// Etiqueta content -> <div ui-view="content"/>
+		views: {
+			'content@': {
+				controller: 'MainController'
+			}
+		},
+		resolve: {
+			mainTranslatePartialLoader: ['$translate', '$translatePartialLoader', 
+				function ($translate,$translatePartialLoader) {
+					$translatePartialLoader.addPart('main');
+					return $translate.refresh();
+			}]
+		}
+	});
+}
+```
+
+En este caso concreto, el content carga únicamente un controller, no una una vista HTML. Si nos fijamos en el código de este
+controller vemos el motivo, *main.controller.js*:
+```javascript
+// Si el usuario esta autenticado, vamos al estado home, sino al estado login.
+if (Principal.isAuthenticated()) {
+	$state.go('home');
+} else {
+	$state.go('login');
+}
+```
+
+En caso de estar autenticado, iría al estado home, este estado se encuentra definido en el fichero *home.js*:
+```javascript
+$stateProvider.state('home', {
+	// estado hereda de site, header@ esta definido
+	parent: 'site',
+	// URL del estado
+	url: '/home',
+	data: {
+		roles: ['ROLE_USER']
+	},
+	// Componentes a cargar en content@, la vista HTML y el controlador.
+	views: {
+		'content@': {
+			templateUrl: 'scripts/home/home.html',
+			controller: 'HomeController'
+		},
+	},
+	resolve: {
+		mainTranslatePartialLoader: ['$translate', '$translatePartialLoader',
+			function ($translate, $translatePartialLoader) {
+				$translatePartialLoader.addPart('home');
+				return $translate.refresh();
+		}]
+	}
+});
+```
+El resto de estados de la aplicación será similar al estado home.
+
+#### Componentes
+Dentro de la carpeta scripts es donde se define cada componente de negocio de la aplicación. Cada componente podrá tener
+controladores, servicios, vistas HTML. 
+
+Por ejemplo el componente *allocation* tiene una vista (HTML), un controlador, servicio y un estado.
+
+Vamos a echar un vistazo primeramente al estado
+```javascript
+angular.module('mentoringApp').config(function ($stateProvider) {
+	$stateProvider.state('allocation', {
+		name: 'allocation',
+		// Hereda de estado site, tendrá header@
+		parent: 'site',
+		// URL del estado
+		url: '/allocation',
+		// Variables añadidas al estado
+		data: {
+			roles: ['ROLE_ADMIN', 'ROLE_RRHH', 'ROLE_DIRECTORG'],
+			pageTitle: 'allocations.title'
+		},
+		// Componentes. Vista, controller y su alias.
+		views: {
+			'content@': {
+				templateUrl: 'scripts/allocation/allocation.html',
+				controller: 'AllocationController',
+				controllerAs: 'allocationCtrl'
+			}
+		},
+		resolve: {
+			translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+				$translatePartialLoader.addPart('allocation');
+				return $translate.refresh();
+			}]
+		}
+	})
+});
+```
+
+En este caso vemos que el controller tiene un alias, definido como [controllerAs]. Esto nos permitirá tener más control sobre las
+variables del controller y su acceso. De ete modo, para acceder a las variables y propiedades del controller desde HTML haremos
+lo siguiente: *allocationCtrl.variable/método*.
+```html
+<select class="form-control" ng-model="allocationCtrl.empleado" ng-options="empleado in allocationCtrl.empleados"
+		ng-change="allocationCtrl.change(empleado.id)">
+	<option value=""></option>
+</select>
+```
+
+También nos permitirá definir el controller de una forma más cercana a JavaScript, eliminando 
+de este modo el excesivo uso de $scope (scope soup).
+
+```javascript
+function AllocationController($rootScope, $filter, $translate, Empleados, Leaders, Allocation,
+  Allocations, AllocationsLeader, AllocationSave, AllocationsLE) {
+
+  // la variable que contenga this, será sustituta de $scope al usar controllerAs
+  var vm = this;
+  vm.empleado = [];
+  
+  vm.loadEmpleados = function () {
+    Empleados.query(function (result1) {
+      vm.empleados = result1;
+    });
+  };
+}
+angular.module('mentoringApp').controller('AllocationController', AllocationController);
+```
+
+La definición de los servicios se hará mediante la función factory. Esta función nos permite retornar un objeto que será la definición 
+del servicio.
+
+### Gruntfile.js
+La construcción de la aplicación se realiza con Grunt. Toda la configuración de Grunt, se encuentra en el fichero *Gruntfile.js*.
+Este fichero consta de dos fases, la primera es donde definiremos los diferentes tareas y sus targets.
+
+Podemos además añadir infinidad de plugins de Grunt que nos ayudarán en las tareas de construcción. Los plugins añadidos para la 
+aplicación se encuentran en el fichero *package.json*, dentor de la variable devDependencies y con nomenclatura grunt-*. 
+Para añadir un plugin nuevo bastaría con escribir el siguiente comando:
+```
+npm install grunt-plugin-a-añadir --save-dev
+```
+Esto hará que el plugin se instale y automaticamente se añada al fichero *package.json*.
+
+Una vez instalados los pugins, es necesario cargarlos en grunt. Para ello podemos hacer uno a uno:
+```javascript
+require('grunt-contrib-clean');
+require('grunt-contrib-uglify');
+require('grunt-contrib-concat');
+```
+o haciendo uso del plugin *load-grunt-task*. Este plugin se encargará de cargar todas las dependencias grunt-* que haya en el fichero
+*package.json*.
+
+Cada plugin tiene puede tener diferentes configuraciones, a cada una de estas configuraciones las llamamos targets.
+Por ejemplo el siguiente plugin, *clean*, tiene dos targets, *dist* y *server*, cada una con su propia configuración.
+```javascript
+clean: {
+	dist: {
+		files: [{
+			dot: true,
+			src: [
+			'.tmp',
+			'<%= config.dist %>/*',
+			'!<%= config.dist %>/.git*'
+			]
+		}]
+	},
+	server: '.tmp'
+}
+```
+Esto quiere decir que podremos usar la tarea *clean:dist* y la tarea *clean:server*, y estas utilizarán el plugin clean de distinto modo.
+En caso de querer lanzar ambas configuraciones simplemente usaremos *clean*.
+Una vez definida tarea deberemos definir un alias de tarea. Un alias de tarea engloba una o varias tareas para su ejecución.
+
+Por ejemplo, podemos definir el alias 'run' que contendrá las tareas jshint, clean:dist y test.
+```javascript
+grunt.registerTask('run', ['jshint', 'clean:dist', 'test']);
+```
+Estas tareas se realizarán de forma secuencial, no en paralelo.
+
+#### Tareas Grunt
+A continuación se explican las tareas del gruntfile.js por orden de aparición:
+
+- watch: Permite la recarga de tareas si alguno de los ficheros configurados en sus opciones cambia.
+- browserSync: Permite montar un servidor web para servir los estáticos. De este modo no es necesario incorporar la aplicación
+web en Java, haciendo más rápido el desarrollo. El target *livereload* incorpora la opción middleware, por la que las peticiones REST
+/api se redireccionan al puerto 8080, donde está la aplicación Java.
+- clean: Limpia las carpeta temp y dist.
+- jshint: Tarea que analiza la calidad del código JavaScript generado. En caso de encontrar errores fallará.
+- babel: Compila código EcmaScript6 en código EcmaScript5 (admitido por todos los navegadores). Si no se encuentra código ES6,
+simplemente copia el código JS en la carpeta .tmp/scripts
+- postcss: Postcompilador de ficheros CSS. Copia los ficheros CSS en .tmp/styles.
+- wiredep: Inyecta las dependencias javascript manejadas por bower directamente en el código. En el caso de app las inyecta en el 
+fichero index.html, entre los elementos  *<!-- bower:js -->* y *<!-- endbower -->*. En el caso de test, los inyecta en el fichero 
+*karma.conf.js* entre los elementos *// bower:js* y *// endbower*.
+- filerev: Añade un sufijo aleatorio para cada fichero js, css, jpg, etc. en cada construcción. De este modo el nombre de los ficheros
+cambia en cada deploy de la aplicación, forzando al browser a solicitar el fichero ya que no estará en su caché.
+- usemin, imagemin: Minimiza los ficheros html, jpg, svg, para ahorrar bytes.
+- copy: Copia los ficheros que no han sido copiados por otro plugin ya, de la carpeta app a la carpeta dist.
+- modernizr: Escanea el codigo de la aplicación en busca de test de [Modernizr], para customizar la creación de un fchero Modernizr.js
+que cumplirá con los test.
+- concurrent: Permite lanzar tareas de forma simultanea, permitiendo pasar por encima de la limitación de Grunt de realizar una tarea
+tras otra.
+- ngConstant: Creará un fichero con constantes para la aplicación AngularJS, en base al target dado.
+- ngAnnotate: Nos permite autoinyectar servicios en los controladores AngularJS para evitar errores en el minimizado.
+- karma: Especifica la configuración de los tests unitarios.
+- protractor: Especifica la configuración de los tests e2e.
+
+##### ngAnnotate
+Hemos dicho que el plugin ngAnnotate nos permite inyectar servicios en los controladores, para evitar errores al minimizar el código.
+¿Por qué es esto?
+
+Por sencillez al codificar los controladores lo hacemos de la siguiente manera:
+```javascript
+function MyController($http, MyService) {
+...
+}
+angular.controller('MyController', MyController);
+```
+AngularJS sabrá que al arrancar la aplicación deberá inyectar los servicios $http y MyService a ese controller. El problema viene
+al minimizar este código. Quedaría de la siguiente manera:
+```javascript
+function a(b,c) {
+...
+}
+angular.controller('MyController', a);
+```
+AngularJS intentará inyectar los servicios b y c, pero al no encontrarlos fallará. Para solucionar esto podemos usar la anotación
+de servicios por array. Esto es pasarle a la función controller un array como segundo parámetro, donde iremos poniendo todos los
+servicios como String, y en donde la última posición será la función que define el array.
+```javascript
+function MyController($http, MyService) {
+...
+}
+angular.controller('MyController', ['$http', 'MyService', MyController]);
+```
+Esto al ser minimizado quedará así:
+```javascript
+function a(b, c) {
+...
+}
+angular.controller('MyController', ['$http', 'MyService', a]);
+```
+De este modo Angular no lanzará error alguno.
+
+Esto es precisamente lo que hace el plugin ngAnnotate. Realiza la implementación array por nosotros. Únicamente habrá que poner el
+comentario /*@ngInject*/ en la función que queremos usar con anotación de array y el plugin se encargará de todo.
+
+El siguiente código:
+```javascript
+/*@ngInject*/
+function MyController($scope, $translate, Language) {
+...
+}
+angular.controller('MyController', MyController]);
+```
+quedará de esta manera una vez sido procesado por ngAnnotate.
+```javascript
+function a(a, b, c) {
+...
+}
+angular.controller('MyController', ['$scope','$translate','Language', a]);
+```
+
+
+### Test unitarios
+Para llevar a cabo los test unitarios, utilizaremos el framework Jasmine. Jasmine es un framework de test cuyo lenguaje se acerca
+al lenguaje natural, por lo que es muy sencillo realizar estos tests.
+
+Para lanzar estos tests usaremos [Karma]. Karma es un runner de test JavaScript escrito por el equipo de AngularJS. Su uso es 
+muy sencillo. Vamos a echar un vistazo al fichero *karma.conf.js* que es el fichero que hemos puesto como fiheor de configuración en
+la tarea karma del gruntfile.js, en donde se comentará que hace cada opción.
+
+```javascript
+// Karma configuration
+module.exports = function(config) {
+  config.set({
+  	// Ruta base de configuración
+    basePath: '../',
+	// framework de test a usar, en este caso usamos jasmine
+    frameworks: ['jasmine'],
+	// Ficheros a cargar para los test.
+    files: [
+	// dependenias bower añadidas por wired
+      // bower:js
+      'bower_components/modernizr/modernizr.js',
+	  .....
+      // endbower
+      
+	  // ficheros de la aplicación a cargar.
+      'app/scripts/app.js',
+      'app/scripts/app.*js',
+      'app/scripts/**/**/*.js',
+      'app/scripts/**/**/*.*.js',
+      'test/spec/**/*.*.*js'
+    ],
+	// Ficheros excluidos de la carga para los tests
+    exclude: ['karma.config.js'],
+    port: 9000,
+    logLevel: config.LOG_INFO,
+    autoWatch: false,
+	// Navegador en el que realizar los test. En este caso al ser test unitarios elegimos PhantomJS, un navegador headless
+	// (sin vista)
+    browsers: ['PhantomJS'],
+	// Al finalizar o dar error los tests karma se para. Solo pondremos false si queremos mantenerlo vivo para entornos IC.
+    singleRun: true
+  });
+};
+```
+
+En caso de querer lanzar los tests en otros navegadores, como por ejemplo Chrome o Internet Explorer, podremos modificar el array
+browsers, para añadir y eliminar cuantos navegadores queramos. Esto nos dará la posibilidad de ver que el código que hemos escrito
+es totalmente funcional en diferentes navegadores. Aunque por defecto la opción a tener siempre será PhantomJS.
+
+En el fichero Gruntfile.js se define una tarea, llamada 'unit-test', que permite lanzar los tests unitarios.
+```
+grunt unit-test
+```
+
+#### Jasmine
+Como hemos mencionado, Jasmine es un framework de test para JavaScript, cuyo lenguaje se acerca al lenguaje natural. Entre sus funciones
+más características están *describe*, *it*, *beforeEach*, *expect*, *not*, *toBe*, etc. Llevadas al caso práctico serían utilizadas de la siguiente 
+manera:
+```javascript
+describe('definimos una test suite', function(){
+	beforeEach(function(){
+		console.log('Realizamos una acción antes de cada test');
+	});
+	it('definimos un test', function(){
+		// Creamos los expect del test
+		expect(2+2).toBe(4);
+		expect(1+1).not.toBe(3);
+	});
+	afterEach(function(){
+		console.log('Realizamos una acción después de cada test');
+	});
+})
+```
+
+En la página web de Jasmine 2.0, se encuentra documentado todo el framework, con los distintos métodos y funciones que define.
+
+#### Tests de controladores AngularJS
+Para realizar un test de un controlador AngularJS deberemos seguir una serie de pasos que serán siempre los mismo cuando queramos
+testear un controlador AngularJS. A continuación se ejemplifican estos pasos:
+```javascript
+function TestController($scope, $log, $http) {
+....
+}
+
+describe('Test controller', function(){
+	var scope, controller;
+	
+	// Cargamos el módulo de la aplicación. 
+	beforeEach(module('mentoringApp'));
+	
+	// Con $rootScope creamos un $scope nuevo, y con $controller instanciamos el controlador.
+	beforeEach(inject(function ($rootScope, $controller, $log, $http) {
+		scope = $rootScope.new();
+		controller = $controller('TestController',
+			// Este objeto son las inyecciones de servicios que tiene el controller.
+			// Los servicios que necesite el controller, los deberemos de poner dentro de la función inject (mas arriba)
+			// y añadirlos al controller de esta manera.
+			{'$scope': scope,
+			 '$log': $log,
+			 '$http': $http
+		});
+	}));
+	
+	it('should test the controller', function(){
+		// aqui se testeará la lógica del controller
+		// expect(controller.doSomething()).toBe(true);
+	});
+});
+```
+
+#### Tests de servicios AngularJS
+Para realizar un test de un servicio AngularJS, es necesario seguir algunos de los pasos para los tests de los controladores.
+No obstante es más fácil realizar un test para un servicio que para un controlador, debido a que el controlador es necesario
+instanciarlo, mientras que el servicio ya está creado por Angular.
+
+Igual que antes, vamos a ejemplificar un test de un servicio AngularJS.
+```javascript
+describe('Test Service', function() {
+	var MyService;
+	
+	// Cargamos el módulo, al igual que en los controladores
+	beforeEach(module('mentoringApp'));
+	
+	// Injectamos el servicio para tener una referencia a él
+	// Aunque pongamos su nombre entre guiones bajos, AngularJS sabrá que servicio es. Eliminará los guiones y buscará el servicio.
+	beforeEach(inject(function (_MyService_) {
+		MyService = _MyService_;
+	}));
+	
+	it('should test the service', function(){
+		expect(MyService.doSomething()).toBe(true);
+	});
+});
+```
+
+#### Peticiones HTTP en test unitarios
+Muy a menudo se nos dará el caso en el que un test realice una petición HTTP al servidor. Como el proposito de los test unitarios es
+permanecer aislados, estas peticiones jamás deben realizarse.
+
+Para manejar esta situaciones, haremos uso del servicio [$httpBackend]. Este servicio nos permitirá mockear llamadas HTTP, para devolver
+las respuestas que queramos.
+
+Su forma de empleo es muy sencilla, simplemente inyectaremos el servicio en el test y ya estaremos listos para usarlo.
+```javascript
+var httpBackend, MyService;
+beforeEach(inject(function (_$httpBackend_, _MyService_) {
+	$httpBackend = _$httpBackend_;
+	MyService = _MyService_;
+}));
+```
+La manera de trabajar con httpBackend es similar a la usada con Mockito. Para una determinada petición, devuelve una respuesta.
+Hay que destacar que la petición que que se mockee debe ser exactamente la misma que reciba el servicio httpBackend. Misma URL,
+mismos parámetros, y en caso de PUT/POST mismo objeto de entrada y mismos valores de sus propiedades.
+
+```javascript
+it('should return a list of employees', function () {
+	var employee = [{ id: 1, name: 'Shaq ONeal' }, { id: 2, name: 'Charles Barkley' }];
+
+	$httpBackend.expect('GET', 'api/employeeEvaluable').respond(200, employee);
+	
+	// Empleados.query tendrá una lógica que lanzará una petición GET api/employeeEvaluable, asi que el servicio
+	// httpBackend debe esperar una peticion con esa URL exacta
+	var result = Empleados.query();
+	
+	// Terminará las peticiones pendientes
+	// A partir de aquí result tendrá el valor devuelto por httpBackend -> employee
+	$httpBackend.flush();
+
+	// realizamos los expect del resultado
+	expect(result).not.toBe(null);
+	expect(result[0].name).toBe('Shaq ONeal');
+	expect(result[1].name).toBe('Charles Barkley');
+});
+```
+
+Como se ve, el funcionamiento es muy muy similar a los test unitarios realizados con Mockito. Para el los diferentes métodos HTTP
+existen diferentes funciones.
+```javascript
+$httpBackend.expect('POST', url, {data:data})
+$httpBackend.expect('PUT', url, {data:data})
+$httpBackend.expect('DELETE', url)
+
+$httpBackend.expectPOST(url, {data:data})
+$httpBackend.expectPUT(url, {data:data})
+$httpBackend.expectDELETE(url)
+```
+
+### Tests End to End
+Los test e2e (End to End) son aquellos tests que intentan testear la aplicación de un lado a otro. En el caso de las aplicaciones front
+significa que se probará desde el navegador, hasta la última capa de la lógica JavaScript. Son por lo tanto tests en los que simularemos
+las interacciones del usuario en el navegador.
+
+Estos tests se realizarán mediante el framework Protractor. Protractor es un framework de test e2e creado por el equipo de AngularJS
+por lo que se integra perfectamente con él. Este framework nos permite seleccionar un elemento de la página HTML usando selectores
+típicos de Angular. A su vez, Protractor utiliza por debajo utiliza Selenium Webdriver, que nos permite tener selectores por 
+css, class, id, etc.
+
+Selenium Webdriver no viene instalado por defecto, por lo que deberemos instalarlo manualmente. Esto se hará yendo a la carpeta 
+de Protractor y ejecutando el binario webdriver-manager.
+```
+cd node_modules/protractor/node_modules/.bin
+webdriver-manager update --standalone
+```
+
+En caso de no hallarse en esa carpeta el fichero webdriver-manager.cmd, podremos buscarlo en la ruta 
+node_modules/grunt-protractor-runner/node_modules/.bin.
+
+La configuración de Protractor, viene dada por el fichero *protractor.conf.js*, que es el que está definido en la tarea protractor de
+grunt. Este es un fichero mucho más sencillo que el fichero de Karma.
+```javascript
+exports.config = {
+  // framework de test a usar
+  framework: 'jasmine2',
+  // URL donde se lanzarán las pruebas
+  baseUrl: 'http://127.0.0.1:9000',
+  // Ruta de los ficheros de test
+  specs: ['../test/e2e/login_test.js'],
+  // Browsers a ejecutar
+  capabilities: {
+    'browserName': 'chrome'
+  },
+  // Opciones especificas de Jasmine
+  jasmineNodeOpts: {
+    showColors: true,
+    defaultTimeoutInterval: 30000,
+    isVerbose : true,
+    includeStackTrace : true
+  }
+}
+```
+
+Para lanzar estos test basta con ejecutar el comando grunt con el target e2e-test
+```
+grunt e2e-test
+```
+
+#### Tests protractor
+Como hemos dicho, los tests de protractor simularán la interacción del usuario con la página web. Por ello usarán nuevas funciones
+específicas para simular este comportamiento. La estructura de los test seguirá siendo la misma, usando Jasmine, pero la forma
+de realizarlos cambiará un poco. 
+Estas nuevas funciones tienen, al igual que Jasmine, un lenguaje cercano al lenguaje humano, por lo que son facilmente comprensibles.
+Estos test se encuentran en la carpeta test/e2e.
+
+A continuación se pone de ejemplo un test para la pantalla de login.
+```javascript
+// Creamos la test suite, del mismo modo que en Jasmine
+describe('Protractor Demo App', function () {
+  // En este caso no hay que configurar nada, la página se cargará al arrancar el test.
+
+  // Definimos el test
+  it('should have a title', function () {
+    // Objeto de Selenium Webdriver, dirigimos el navegador a la pagina de login.
+    browser.get('http://localhost:9000/');
+	// Expect del test, el titulo de la web debe ser VASS&You 3.0
+    expect(browser.getTitle()).toEqual('VASS&You 3.0');
+  });
+  
+  // Test login en la pantalla
+  it('should login in the app', function(){
+  	  // Seleccionamos el elemento cuyo ngModel es loginCtrl.username
+      var userInput = element(by.model('loginCtrl.username'));
+	  // Escribimos sami.baki
+      userInput.sendKeys('sami.baki');
+      var passInput = element(by.model('loginCtrl.password'));
+      passInput.sendKeys('99543');
+	  // Seleccionamos el elemento con class boton_general, y hacemos click
+      element(by.css('.boton_general')).click();
+  });
+});
+```
+
+En las página de [documentación de Protractor] se encuentran todas las funciones selectoras que pueden usarse. También es posible
+referirse a la página de [documentación de Selenium].
+
+Los test de Protractor, a diferencia de los unitarios,no pueden usar el servicio $httpBackend. Así que la manera que tenemos de mockear
+los resultados es usando un middleware, de la misma manera en que redireccionamos las peticiones /api al puerto 8080, en este caso el
+middleware directamente las responderá. Esto se hace desde el fichero proxyMiddleware.js, con la variable proxyMiddlewareProtractor.
+
+Lo que haremos será responder ante las peticiones que puedan llegar. En el siguiente ejemplo, ante la petición api/login se devuelve
+un JSON con contenido {user:"OK"}.
+```javascript
+if (req.url.indexOf('api/login') != -1) {
+	res.json("{user:'OK'}")
+} else {
+	next();
+}
+```
+
+Si quisieramos devolver otra respuesta en función de los parámetros recibidos en un POST, podriamos hacer esto:
+```javascript
+if (req.url.indexOf('api/login') != -1) {
+	// Funcion que obtiene los datos enviados en un POST. Data sera un objeto creado con ese resultado
+	getPOSTData(req, res, function (data) {
+ 	  // Si las propiedades del objeto son las que esperamos...
+      if (data.username === 'sami.baki' && data.password === '99543') {
+         res.json("{user:'OK'}")
+      } else {
+         res.json("{user:'NOK'}")
+      }
+    });
+} else {
+	next();
+}
+```
+
+Si quisieramos añadir otra respuesta a una petición diferente hariamos esto:
+```javascript
+if (req.url.indexOf('api/login') != -1) {
+	res.json("{user:'OK'}")
+} else if (req.url.indexOf('api/logout') != -1) {
+	res.json("{logout:'true'}");
+} else {
+	next();
+}
+```
+
+### Construcción de la aplicación
+Para construir la aplicación exiten dos posibilidades, usar Grunt o usar Maven.
+
+#### Grunt
+La tarea default de Grunt se encarga de revisar la calidad del software, pasar los test (unitarios y e2e) y construir la app. Esta tarea
+se lanzaría simplemente escribiendo el comando grunt por consola.
+
+La definición del alias de tarea 'default' es la siguiente:
+```javascript
+  // Default task. Tests + build
+  grunt.registerTask('default', [
+    'jshint', // tarea grunt jshint
+    'test', // tarea grunt que engloba las tareas unit-test y e2e-test
+    'build' // tarea grunt build
+  ]);
+```
+
+La tarea build, es la que se ocupa de lanzar la construcción del proyecto. Esta tarea se encuentra definida así:
+```javascript
+// Build task
+  grunt.registerTask('build', [
+    'clean:dist', // tarea clean:dist -> elimina las carpetas dist, .tmp.
+    'wiredep', // tarea wiredep. Ejecuta tanto wiredep:dist como wiredep:test. Inyecta las dependencias bower en index.html y en los ficheros de test.
+    'useminPrepare', // tarea usemin. Prepara la configuracion de minimizado de elementos.
+    'concurrent:dist', // tarea concurrent:dist. Ejecuta babel, copy:styles (copia estilos en .tmp), imagemin y svgmin (minimizan y copian imagenes en dist/img). 
+    'postcss', // tarea postcss. Ejecuta el postprocesado de css.
+    'concat', // tarea concat. Definida por useminPrepare.
+    'ngAnnotate', // tarea ngAnnotate. Autoinyecta los servicios en los controladores AngularJS.
+    'cssmin', // tarea cssmin. Definida por useminPrepare
+    'uglify', // tarea uglify. Definida por useminPrepare. Ofusca los ficheros JS.
+    'copy:dist', // tarea copy:dist. Copia los ficheros que no ha sido copiados por otros plugins a la carpeta dist.
+    'modernizr', // tarea modernizr.
+    'filerev', // tarea filerev. Añade un prefijo a todos los ficheros estáticos para el cacheo del browser
+    'usemin', // tarea usemin. 
+    'htmlmin' // tarea htmlmin.
+  ]);
+```
+
+Tras ejecutar esta tarea, se habrá creado la carpeta dist, que es donde residirá la construcción de la aplicación. 
+
+#### Maven
+Debido a que se esta usando Java en la parte de back y se quiere empaquetar todo en una aplicación Spring Boot, es necesario tener
+un mecanismo que cree un fichero jar a partir de la aplicación, para poder ser empaquetado dentro de la aplicación Java. Esto se hará
+con Maven. Para hacer uso de los estáticos a partir de un jar, usaremos Webjars. Los contenedores de aplicaciones modernos permiten
+servir los estáticos que estén empaquetados en un JAR, dentro de la carpeta META-INF/resources. Esto es precisamente lo que haremos,
+empaquetar la aplicación creado con Grunt, en la carpeta META-INF/resources para después rear un .jar.
+
+Existe un fichero pom.xml en la aplicación que define una serie de plugins usados para realizar la construcción Grunt desde Maven.
+El primer plugin es el plugin resources. Este plugin únicamente copiará el contenido de la carpeta dist en la carpeta META-INF/resources.
+Este proceso se ejecutará siempre independientemente del perfil de Maven seleccionado. Esto facilita el desarrollo de back, ya que no
+es necesario estar construyendo con Grunt la aplicación cada vez que se quiera realizar un cambio en Java. Con construirla una sola
+vez ya estará reada la carpeta dist, y Eclipse podrá crear un jar a partir de esa carpeta que podrá desplegar en la aplicación Java.
+
+A partir de aquí, ya influyen los perfiles. Los dos primeros perfiles, Windows y Unix, se activan en función del sistema operativo
+donde corra Maven, y únicamente definen una propiedad que será usada desde el perfil prod.
+
+El perfil prod es el que se encarga de lanzar la ejecución de Grunt. Este perfil tiene tres plugins.
+
+- frontend-maven-plugin. Tiene 4 ejecuciones distintas. Las dos primeras se ejecutan en la fase Maven initialize, y se encargan de instalar
+node, npm y las dependencias npm que pueda tener la aplicación. Las dos siguientes se ocupan de instalar las dependencias bower y ejecutar
+la tarea Grunt. Estas ejecuciones se realizan en la fase process-resources.
+
+- exec-maven-plugin. Posee 1 ejecución. Se encargará de ejecutar el fichero ejecutable installWebdriver.exe (installWebdriver.sh)
+si estamos en entorno Unix. Este script ejecutará el binario webdriver-manager del que se hablado en la configuración de Protractor.
+
+- maven-jar-plugin. Creará un archivo jar a partir de la carpeta target.
+
+Así pues el orden de ejecución de los plugins será el siguiente:
+
+- Instalación node y npm
+- Ejecucion npm install
+- Ejecucion webdriver-manager
+- Ejecucion bower install
+- Ejecucion grunt
+- Copia de carpeta dist a META-INF/resources
+- Creación del fichero jar. 
+
+[Git]: <https://desktop.github.com>
+[Grunt]: <http://gruntjs.com/>
+[Jasmine]: <http://jasmine.github.io/2.0/introduction.html>
+[Protractor]: <https://angular.github.io/protractor/#/>
+[Node.js]: <https://nodejs.org/en/>
+[Bower]: <http://bower.io/>
+[AngularJS]: <https://angularjs.org/>
+[tutorial de AngularJS]: <http://campus.codeschool.com/courses/shaping-up-with-angular-js/intro>
+[CSRF]: <https://en.wikipedia.org/wiki/Cross-site_request_forgery>
+[$rootScope]: <https://docs.angularjs.org/api/ng/service/$rootScope>
+[ui-router]: <http://angular-ui.github.io/ui-router/site/#/api/ui.router>
+[controllerAs]: <http://toddmotto.com/digging-into-angulars-controller-as-syntax/>
+[Modernizr]: <https://modernizr.com/>
+[Karma]: <http://karma-runner.github.io/0.13/index.html>
+[$httpBackend]: <https://docs.angularjs.org/api/ngMock/service/$httpBackend>
+[Selenium Webdriver]: <http://selenium.googlecode.com/git/docs/api/javascript/index.html>
+[documentación de Protractor]: <https://angular.github.io/protractor/#/api?view=ProtractorBy>
+[documentación de Selenium]: <https://selenium.googlecode.com/svn/trunk/docs/api/rb/Selenium/WebDriver/Element.html>
+[Webjars]: <http://www.webjars.org/documentation>
+</xmp>
+
+<script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
+<style>
+  .brand {
+    cursor:pointer;
+  }
+</style>
+<script>
+	document.getElementsByClassName("brand")[0].onclick = goHome;
+	function goHome(){
+		window.location.href="../../index.html"
+	};
+</script>
+</html>

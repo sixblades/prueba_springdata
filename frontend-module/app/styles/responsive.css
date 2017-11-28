@@ -1,0 +1,495 @@
+/*tabla cuestionario*/
+
+
+/*------------------------------------------------------TABLET media (max-width: 2600px)(pantallas alta resolucion)---------------------------------------------------------*/
+@media (max-width: 2600px){
+	.cabecera_login {
+	  height: 132px;
+	}
+}/*fin media (max-width: 2600px)*/
+
+/*------------------------------------------------------TABLET media (max-width: 1900px) (pantallas alta resolucion)---------------------------------------------------------*/
+@media (max-width: 1900px){
+	.cabecera_login {
+	  height: 120px;
+	}
+}/*fin media (max-width: 1900px)*/
+
+/*------------------------------------------------------TABLET media (max-width: 1600px) (pantallas alta resolucion)---------------------------------------------------------*/
+@media (max-width: 1600px){
+	.cabecera_login {
+	  height: 107px;
+	}
+}/*fin media (max-width: 1600px)*/
+
+/*------------------------------------------------------TABLET media (max-width: 1050px)---------------------------------------------------------*/
+@media (max-width: 1050px){ 
+/*----cabecera----*/
+.cabecera_menu .dropdown-toggle {
+	font-size: 12px!important;
+}
+.navbar-brand.ico_home {
+	width: 43px;
+}
+/*----fin cabecera----*/
+}/*fin media (max-width: 1050px)*/
+
+
+
+/*------------------------------------------------------TABLET media (max-width: 850px)---------------------------------------------------------*/
+@media (max-width: 850px){
+body {
+	background: #dae3ed;
+}
+
+.table_evalucaion.table td {
+    float: left;
+    width: 100% !important;
+	text-align: center;
+}
+.table_evaluacion.table th{
+    float: left;
+    width: 100% !important;
+	text-align: center;	
+}
+.table.table_evaluacion th a {
+	font-size: 1em
+}
+.table.table_evaluacion th a:hover {
+	font-size: 1em
+}
+.text-center.literal_movil {
+	font-size: 0.9em;
+}
+.respuesta {
+	width: 100%!important;
+	float: left;
+}
+.table_evalucaion.table label {
+	width: 100%;
+}
+.table_evalucaion.table button {
+	width: 100%;
+}
+.table_evalucaion.table .respuesta {
+	width: 100%;
+}
+.table_literales_preguntas {
+	display: none;
+}
+.literal_movil {
+	display: block;
+}
+.evaluacion_formselect select {
+  width: 86%!important;
+  min-width: 88%!important;
+}
+
+.table.table_consulta {
+    font-size: 0.8em;
+}
+.evaluacion_nombres1 {
+	width: 90%!important;
+}
+.evaluacion_nombres2 {
+	width: 90%!important;
+}
+.evaluacion_nombres3 {
+	width: 90%!important;
+}
+/*tabla consulta*/
+/*texto explicativo encima de la tabla 850*/
+.evaluacion_forms {
+	width: 100%!important;
+}
+.evaluacion_forms p {
+	width: 90%!important;
+}
+/*fin texto explicativo 850*/
+.table.table_consulta span {
+	display: block;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+.table.table_consulta th {
+	display: none;
+}
+.table.table_consulta td {
+	float: left;
+	width: 100%;
+	text-align: left;
+}
+.table.table_consulta .cs1 {
+	background: #00847e;
+	color: #fff;
+}
+.table.table_consulta .cs5 > span {
+    float: left;
+    width: 40%;
+}
+.table.table_consulta .cs5 > a {
+	width: 48%;
+	float: left;
+}
+.table.table_consulta .cs5 > img {
+	width: 10%;
+	float: left;
+}
+.table.table_consulta .cs6 > span {
+    float: left;
+    width: 40%;
+}
+.table.table_consulta .cs6 > a {
+	width: 48%;
+	float: left;
+}
+.table.table_consulta .cs6 > img {
+	width: 10%;
+	float: left;
+}
+.table.table_consulta  span: {
+	font-size: 1em;
+	font-weight: bold;
+}
+.table.table_consulta  tr {
+	background: #5d5d5d;
+	color: #fff;
+}
+.table.table_consulta tr:hover {
+	border-bottom: 1px solid #5d5d5d;
+	background: #fff;
+	color: #5d5d5d;
+	cursor: pointer;
+}
+.table.table_consulta tr:hover .cs1 {
+	background: #f2f2f2;
+	color: #000;
+}
+/*tabla asignacion evluadores 850*/
+.table.table_consulta {
+    font-size: 0.8em;
+}
+/*tabla consulta 850*/
+.table.table_asignacion span {
+	display: block;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+.table.table_asignacion th {
+	display: none;
+}
+.table.table_asignacion td {
+	float: left;
+	width: 100%;
+	text-align: left;
+}
+.table.table_asignacion .cs1 {
+	background: #00847e;
+	color: #fff;
+}
+.table.table_asignacion .cs5 > span {
+    float: left;
+    width: 40%;
+}
+.table.table_asignacion .cs5 > a {
+	width: 48%;
+	float: left;
+}
+.table.table_asignacion .cs5 > img {
+	width: 10%;
+	float: left;
+}
+.table.table_asignacion  span: {
+	font-size: 1em;
+	font-weight: bold;
+}
+.table.table_asignacion  tr {
+	background: #5d5d5d;
+	color: #fff;
+}
+
+
+/*fin tabla asignacion evaluadores 850*/
+.navbar-collapse.collapse.in .nav.navbar-nav a{
+	color: #333!important;
+}
+.navbar-collapse.collapse .dropdown-menu a:hover {
+	background: #f2f2f2!important;
+}
+.navbar-collapse.collapse.in .nav.navbar-nav .dropdown-toggle.active{
+	color: #fff!important;
+	text-align: left;
+}
+.cabecera_menu .dropdown-toggle.active:hover {
+	background: #004172!important;
+}
+.navbar-collapse.collapse .dropdown-menu .dropdown-toggle.active:hover {
+	background: #004172!important;
+}
+
+
+.navbar-collapse.collapse.in {
+	background: #fff!important;
+	background-image: none!important;
+	border-bottom: 2px solid #00847e;
+	color: #333!important;
+}
+.navbar-toggle {
+	background-color: #fff;
+}
+.navbar-toggle .icon-bar {
+	height: 3px;
+}	
+.navbar-toggle .icon-bar:hover {
+	background-color: #00847e!important;
+} 
+.navbar-default .navbar-toggle .icon-bar {
+	background-color: #002c66;
+}
+.navbar-default .navbar-toggle .icon-bar:hover {
+	background-color: #00847e!important;
+}
+/*login 850*/
+.loggin_content .container {
+    margin: 0 auto;
+    width: 100%;
+}
+.loggin_content {
+	float: none;
+    margin: 150px auto 20px;
+    width: 100%;
+}
+.loggin_titulo .nav.navbar-nav.nav_idioma {
+  width: 11%;
+  float: left;
+}
+/*fin login 850*/
+/*datos evaluaciones 850*/
+.evaluacion_fecha {
+	width: 90%;
+}
+.evaluacion_nombres {
+	width: 90%;
+}
+/*fin datos evaluaciones 850*/
+/*mensaje aviso 850*/
+.alert_error {
+  color: #a94442;
+  font-weight: bold;
+  font-size: 1.2em;
+  background: url("../img/ico_errores.png") no-repeat!important;
+  background-position: top center!important;
+  background-size: 220px !important;
+  margin: 0 auto;
+  text-align: left;
+  width: 100%;
+  min-height: 193px;
+  padding-left: 0px;
+  padding-top: 202px;
+}
+.logo_cabecera_error {
+background-position: center top!important;
+}
+.alert_error span { 
+	text-align: center;
+}
+/*---fin mensaje aviso 850*/
+/*cabecera 850*/
+.cabecera_menu {
+	float: left;
+	width: 100%;
+}
+
+.cabecera_login {
+  height: 138px;
+}
+.vass .img_logo {
+  background: url("../img/logo_head_vass.png");
+  background-repeat: no-repeat;
+  float: left;
+  margin-top: 10px;
+  min-height: 100%;
+  width: 449px;
+  background-size: 91%;
+  margin-top: 31px;
+}
+.cabecera_menu .dropdown-toggle {
+  font-size: 12px!important;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+/*fin cabecera 850*/
+}/*fin media (max-width: 850px)*/
+
+/*------------------------------------------------------media (max-width: 767px)---------------------------------------------------------*/
+@media (max-width: 767px){
+/*home 767*/
+.img_home {
+	text-align: center;
+}
+.img_home img {
+	width: 33%;
+	margin-top: 19px;
+	margin-bottom: 19px;
+}
+.container.logos_container {
+  width: 100%;
+}
+/*fin home 767*/
+/*cabecera 767px*/
+.vass .img_logo {
+	    width: 100% !important;
+	background-size:58%;
+	Float: left;
+	background-position: center;
+	   min-height: 83px;
+}
+
+.cerrar_sesion {
+	background: url("../img/ico_off_movil.png");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 38px 38px;
+	padding: 27px !important;
+	 width: 30px;
+}
+.cerrar_sesion:hover {
+	background: url("../img/ico_off_movil_hover.png");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 38px 38px;
+	padding: 27px !important;
+	 width: 30px;
+}
+
+.navbar-brand.nav.navbar-nav.navbar-right.mt_30 {
+	width: 100%;
+	Float: left;
+	padding-left: 13%;
+}
+.nombre_Usuario {
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+}
+.cabecera_login {
+  height: 207px;
+}
+.navbar-brand.ico_home {
+  background-color: transparent;
+  background-image: url("../img/ico_home.png") !important;
+    background-position: 2% center;
+  background-repeat: no-repeat;
+  background-size: 26px auto;
+  width: 100%;
+  float: left;
+}
+.navbar-brand.ico_home:hover {
+  background-color: #a8b50a!important;
+  background-image: url("../img/ico_home_hover.png") !important;
+    background-position: 2% center;
+  background-repeat: no-repeat;
+  background-size: 26px auto;
+  width: 100%;
+  float: left;
+}
+.cabecera_menu ul.nav.navbar-nav {
+  float: left;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+.navbar-collapse.collapse.in {
+	padding:0px;
+}
+/*fin cabecera 767px*/
+
+
+}/*fin media (max-width: 767px)*/
+
+/*------------------------------------------------------MOVIL media (max-width: 600px)---------------------------------------------------------*/
+
+@media (max-width: 600px){
+.loggin_titulo .nav.navbar-nav.nav_idioma {
+  width: 21%;
+  float: left;
+}
+.cabecera_menu .dropdown-toggle {
+  font-size: 15px!important;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+}/*fin media (max-width: 600px)*/
+
+
+/*------------------------------------------------------MOVIL media (max-width: 400px)---------------------------------------------------------*/
+@media (max-width: 400px){
+/*---cabecera 400*/
+.vass .img_logo {
+  width: 100% !important;
+  background-size: 90%;
+}
+/*---fin cabecera 400*/
+/*----home 400px---*/
+.img_home img {
+  width: 63%;
+  margin-top: 19px;
+  margin-bottom: 19px;
+}
+/*----fin home 400px---*/
+/*-----modales varios 400px---*/
+.OK_formulario {
+	background-position: left center;
+}
+.error_formulario {
+	background-position: left center;
+}
+.error_externo_formulario {
+	background-position: left center;
+}
+/*-----fin modales varios 400px---*/
+}/*fin media (max-width: 400px)*/
+
+/** Grafico nota **/
+@media screen and (min-width: 992px){
+	.title_nota_superior {
+		display:block;
+	}
+	.title_nota_inferior {
+		display:none;
+	}
+    .nota_calculada {
+		margin-top: 25px;
+	}
+}
+@media screen and (min-width: 1400px){
+    .nota_calculada {
+		margin-top: 13%;
+	}
+}
+@media screen and (min-width: 1700px){
+    .nota_calculada {
+		margin-top: 25%;
+	}
+}
+@media screen and (min-width: 2500px){
+    .nota_calculada {
+		margin-top: 33%;
+	}
+}
+@media screen and (max-width: 991px){
+    .nota_calculada {
+		margin-top: 25%;
+	}
+	.title_nota_superior {
+		display:none;
+	}
+	.title_nota_inferior {
+		display:block;
+	}
+}
+@media screen and (max-width: 514px){
+    .nota_calculada {
+		margin-top: 0px;
+	}
+}

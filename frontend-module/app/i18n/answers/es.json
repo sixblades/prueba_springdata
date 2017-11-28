@@ -1,0 +1,12 @@
+{
+"answers": {
+    "title": "Cuestionario",
+    "field": "Preguntas",
+    "form": {
+        "button": {
+            "buttonGuardar": "Guardar",
+            "buttonActualizar": "Actualizar"
+            }            
+        }
+    }
+}

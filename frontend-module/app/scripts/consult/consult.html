@@ -1,0 +1,69 @@
+<input ng-model="usuario" type="text"/>
+
+<article class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="article" role="main">
+    <section class="col-lg-12 col-md-12 col-xs-12 main_content" role="region">
+        <div class="panel panel-info evaluacion_forms" ng-if="consultCtrl.isVisible">
+            <legend translate="consult.seleccion"></legend>
+            <p translate="consult.seleccionInfo"></p>
+            <label translate="consult.empleados"></label>
+            <div class="evaluacion_formselect" ng-if="consultCtrl.isVisibleLeader">
+                <select class="form-control"                                              
+                    ng-model="consultCtrl.empleado.info"
+                    ng-options="empleado.firstSurname + ' ' + empleado.secondSurname + ', ' + empleado.name for empleado in consultCtrl.empleados track by empleado.id"
+                    ng-change="consultCtrl.change(consultCtrl.empleado.info.id)">
+                        <option value=""></option>
+                </select>
+            </div>
+            <div class="evaluacion_formselect" ng-if="!consultCtrl.isVisibleLeader">
+                <select class="form-control"                                               
+                    ng-model="consultCtrl.empleadoLeaderUser.info"
+                    ng-options="empleadoLeaderUser.firstSurnameEmployee + ' ' + empleadoLeaderUser.secondSurnameEmployee + ', ' + empleadoLeaderUser.nameEmployee for empleadoLeaderUser in consultCtrl.empleadosLeaderUser"
+                    ng-change="consultCtrl.changeLeaderUser(empleadoLeaderUser.info.employeeId)">
+                        <option value="">{{consultCtrl.user.lastName + ', ' + consultCtrl.user.firstName}}</option>
+                </select>
+            </div>
+            <label translate="consult.evaluadores" ng-if="consultCtrl.isVisibleLeader && consultCtrl.isVisibleEvaluator"></label> 
+            <div class="evaluacion_formselect" ng-if="consultCtrl.isVisibleLeader && consultCtrl.isVisibleEvaluator">
+                <select class="form-control" ng-model="consultCtrl.leader.info"
+                        ng-options="leader.firstSurname + ' ' + leader.secondSurname + ', ' + leader.name for leader in consultCtrl.leaders track by leader.id"
+                        ng-change="consultCtrl.changeMando(consultCtrl.leader.info.id)">
+                        <option value=""></option>
+                </select>
+            </div>	
+        </div>
+    
+        <table class="table table_consulta">
+            <tbody>
+                <tr>
+                    <th translate="consult.cabecera.fecha"></th>
+                    <th translate="consult.cabecera.nomEmp"></th>
+                    <th translate="consult.cabecera.nomEval"></th>
+                    <th translate="consult.cabecera.tipoeval"></th>
+                    <th translate="consult.cabecera.modificar"></th>
+                </tr>
+                
+                <tr ng-repeat="evaluation in consultCtrl.evaluations" ng-click="consultCtrl.mostrarEvaluacion(evaluation)">
+                    <td class="cs1">
+                        <span translate="consult.cabecera.fecha"></span>
+                        <p>{{evaluation.creationDate | date:'dd-MM-yyyy'}}</p>
+                    </td>
+                    <td class="cs2">
+                        <span translate="consult.cabecera.nomEmp"></span>
+                        <p>{{evaluation.firstSurnameEmployee + ' ' + evaluation.secondSurnameEmployee + ', ' + evaluation.nameEmployee}}</p>
+                    </td>
+                    <td class="cs3">
+                        <span translate="consult.cabecera.nomEval"></span>
+                        <p>{{evaluation.firstSurnameLeader + ' ' + evaluation.secondSurnameLeader + ', ' + evaluation.nameLeader}}</p>
+                    </td>
+                    <td class="cs4">
+                        <span translate="consult.cabecera.tipoeval"></span>
+                        <p>{{'consult.evaluation.'+evaluation.evaluationType | translate}}</p>
+                    </td>
+                        <td class="cs5">
+                        <span translate="consult.cabecera.modificar"></span>
+                    <a class="ico_editar_consulta" href="#"  ng-if="consultCtrl.modificable(evaluation)"></a></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</article>
