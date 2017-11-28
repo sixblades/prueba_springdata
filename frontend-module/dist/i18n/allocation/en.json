@@ -1,0 +1,65 @@
+{
+    "allocation": {
+        "seleccion": "Employee Selection:",
+		"seleccionInfo": "You can perform a search of previous assignments by selecting Leader or Employee desired",
+		"seleccionInfo2" :"To assign a new Leader to an Employee press New button.",
+		"empleados": "Employees:",
+		"mandos": "Evaluators:",
+		"fechaDesde": "Date from:",
+		"fechaHasta": "Date until:",
+		"customEmpleados" : "Select an employee",
+		"customEvaluadores" : "Select an evaluator",
+		"cabecera": {
+			"fechaDesde": "Date from:",
+			"fechaHasta": "Date until:",
+			"nomEmp": "Employee's name",
+			"nomEval": "Evaluator's name",
+			"modificar": "Modify"
+		},
+		"button": "Save",
+		"modificacion": "Assignment modification:",
+		"buttonCancelar": "Cancel",
+		"correcto": "Saved successfully.",
+		"incorrecto": "Leader, employee and date fields are required. Date must be later than the last assignment.",
+		"buttonCerrar": "Close",
+		"error" : {
+			"allocation" : "You must fill all the allocation's fields.",
+			"dateFrom.invalid" : "It's not possible to create a new allocation which Date From is before the last allocation's Date From.",
+			"dateFrom.invalidUntil" : "It's not possible to create a new allocation which Date From is later than the last allocation's date until.",
+			"dateUntil.beforeFrom" : "Date Until must not be before Date From.",
+			"previous.sameLeader" : "It's not possible to create a new allocation with the same employee and leader values as the previous one."
+		},
+		"new" : {
+			"title" : "New Allocation",
+			"button" : "New",
+			"empleado" : "Employees",
+			"evaluador": "Evaluators",
+			"dateFrom" : "Date From"
+		},
+		"mod": {
+			"empleado": "Employee:",
+			"evaluador" : "Evaluator:",
+			"fechaDesde": "Date from:",
+			"fechaHasta": "Date Until:"
+		},
+		"modal": {
+			"ok": "Accept",
+			"error" :{
+				"default" : "There has been an error while processing your request.",
+				"modify": "There has been an error while modifying the allocation.",
+				"new": "There has been an error while creating the allocation.",
+				"title" : "Error"
+			},
+			"success" : {
+				"modify" : "The allocation has been modified successfully",
+				"title" : "Success"
+			},
+			"new" : {
+				"modify" : "The allocation has been created successfully.",
+				"title" : "Success",
+				"warning" : "Warning",
+				"invalid" : "The form is not valid."
+			}
+		}
+	}
+}

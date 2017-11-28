@@ -1,0 +1,27 @@
+{
+    "audits": {
+        "title": "Auditoría",
+        "filter": {
+            "title": "Filtro por fecha",
+            "from": "desde",
+            "to": "hasta",
+            "button": {
+                "weeks": "Semanas",
+                "today": "Hoy",
+                "clear": "Limpiar",
+                "close": "Cerrar"
+            }
+        },
+        "table": {
+            "header": {
+                "principal": "Usuario",
+                "date": "Fecha",
+                "status": "Estado",
+                "data": "Información Adicional"
+            },
+            "data": {
+                "remoteAddress": "Dirección Remota:"
+            }
+        }
+    }
+}

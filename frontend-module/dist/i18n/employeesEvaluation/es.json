@@ -1,0 +1,15 @@
+{
+    "employeesEvaluation.layoutTitle" : "Consulta evaluaciones por empleado",
+    "employeesEvaluation.layoutSubtitle" : "Selecciona una dirección y/o área para ver que empleados han realizado autoevaluación en el año seleccionado",
+    "employeesEvaluation.direction.combo" : "Selecciona una dirección",
+    "employeesEvaluation.area.combo" : "Selecciona un área",
+    "employeesEvaluation.year.combo" : "Selecciona un año",
+    "employeesEvaluation.cabecera.nomEmp" : "Nombre Empleado",
+    "employeesEvaluation.cabecera.self" : "Autoevaluación",
+    "employeesEvaluation.cabecera.final" : "Evaluación Final",
+    "employeesEvaluation.tabla.si" : "Sí",
+    "employeesEvaluation.tabla.no" : "No",
+    "employeesEvaluation.modal.error" : "Ha ocurrido un error procesando tu solicitud.",
+    "employeesEvaluation.modal.error.title" : "Error",
+    "employeesEvaluation.modal.ok" : "Aceptar"
+}

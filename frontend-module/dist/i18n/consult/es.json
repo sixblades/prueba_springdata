@@ -1,0 +1,30 @@
+{
+    "consult": {
+        "seleccion": "Selección de Empleado:",
+		"seleccionInfo": "Selecciona el empleado sobre el que desees consultar sus Evaluaciones",
+        "empleados": "Empleados:",
+		"evaluadores": "Evaluadores:",
+		"evaluation":{
+						"auto": "Autoevaluación",
+						"eval": "Evaluación",
+						"final": "Evaluación Final"
+					},
+		"cabecera": {
+						"fecha": "Fecha de evaluación",
+						"nomEmp": "Nombre de empleado",
+						"nomEval": "Nombre de evaluador",
+						"tipoeval": "Tipo de evaluación",
+						"modificar": "Modificar"
+					},
+		"modal" : {
+			"ok" : "Aceptar",
+			"ok.title" : "Éxito",
+			"error.title" : "Error"
+		}
+	},
+	"save.evaluation.finalevaluation.exists": "No es posible modificar la evaluación. Ya existe una evaluación final para el empleado en el presente año.",
+	"guardarCorrecto": "Guardado correctamente",
+	"guardarCorrectoNoNota": "Guardado correctamente, aunque la nota de la evaluación no ha podido guardarse",
+    "guardarFalla": "Ha ocurrido un error, reintentalo más tarde o ponte en contacto con administración",
+	"guardarNoSeObserva": "Recuerda que sólo puedes indicar una competencia como no observable por pilar"
+}

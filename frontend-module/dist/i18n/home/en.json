@@ -1,0 +1,33 @@
+{
+      "home": {
+        "welcome": "Welcome to the Competencies Evaluation Application",
+        "description": "With this application you gain access to the Competencies Evaluation System where you can make your self evaluation and thus initialize the performance evaluation process.<br/> In the case your are a Leader Employee you can also evaluate your team.",
+        "description1": "Remember to be as objective as possible. The aim is to know and develop competencies",
+        "description2": "Any question please contact to ",
+        "description3": "Welcome to the new VASS&YOU.",
+        "li": {
+        	"competences": {
+        		"title": "Competencies: ",
+        		"description": "You must assess yourself on all of them and check the checkbox than fits you better.<br/> You can only check as 'Not observed' one competency by pillar."
+        	},
+        	"summary": {
+        		"title": "Competencies resumee: ",
+        		"description": "Select the three competencies that you consider you need to maximize and the three ones you consider are your strengths."
+        	},
+        	"comments": {
+        		"title": "Comments: ",
+        		"description": "The only section you can leave it blank, but ideally the more information the best."
+        	}
+        },
+        "competences": {
+            "management": "Management",
+            "leadership": "Leadership"
+        },
+        "pillars": {
+        	"talent": "Talent",
+        	"attitude": "Attitude",
+        	"business": "Business",
+        	"vass": "VASS"
+        }
+    }
+}

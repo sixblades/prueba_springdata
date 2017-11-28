@@ -1,0 +1,17 @@
+{
+    "assign.competences.select" : "Position Weighing",
+    "assign.competences.selectInfo" : "Select the position which you want to administer its weighing.",
+    "assign.competences.select.wageBands" : "Select a  wage band",
+    "assign.competences.select.wageBands.default" : "Select a wage band",
+    "assign.competences.select.position" : "Select a position",
+    "assign.competences.select.position.default" : "Select a position",
+    "assign.competences.button.save" : "Save",
+    "assign.competences.modal.save.ok.title" : "Attention",
+    "assign.competences.modal.save.ok" : "The weighings have been saved succesfully",
+    "assign.competences.modal.error.sum" : "The sum of all the competencies is invalid. It must be 57 in the case of 25 competencies and 42 in the case of 18.",
+    "assign.competences.modal.error.form.title" : "Form error",
+    "assign.competences.modal.ok" : "Accept",
+    "assign.competences.modal.buttonCerrar" : "Close",
+    "assign.competences.evaluations.saved" : "Evaluations had already been saved this year with theses values. It's not possible to update them.",
+    "assign.competences.lastyear" : "The following values are last year values. Please update them with this year values."
+ }

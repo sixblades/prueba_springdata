@@ -1,0 +1,28 @@
+{
+    "evaluationAll" : {
+        "title" : "Consult all evaluations",
+        "layoutTitle" : "Consult all evaluations",
+        "layoutSubtitle" : "Select a year to consult all the evaluations of that year. Please note that this is a heavy process and it could take a few minutes.",
+        "year" : {
+            "combo": "Select a year"
+        },
+        "cabecera" : {
+            "nomEmp": "Employee",
+            "mail": "E-Mail",
+            "nomEval": "Leader",
+            "direction" : "Direction",
+            "area" : "Area",
+            "self" : "Self Assessment",
+            "final" : "Final Evaluation"
+        },
+        "tabla" : {
+            "si" : "Yes",
+            "no" : "No"
+        },
+        "excel" : {
+            "title" : "If you wish, you can also download the results as an Excel file.",
+            "button" : "Download",
+            "downloading" : "The request is been processing. This process could take a few minutes, please don't close or refresh the browser window."
+        }
+    }
+}

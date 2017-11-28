@@ -1,0 +1,33 @@
+{
+    "home": {
+        "welcome": "Bienvenido a la aplicación de evaluación por competencias",
+        "description": "Mediante esta aplicación accedes al sistema de evaluación por competencias para realizar tu AutoEvaluación y así iniciar el proceso de evaluación del desempeño.<br/> En caso de que seas Mando podrás realizar las evaluaciones de seguimiento de tu equipo.",
+        "description1": "Recuerda ser lo más objetivo posible, lo importante es conocer y desarrollar competencias.",
+        "description2": "Cualquier duda dirígete a ",
+        "description3": "Bienvenido al nuevo VASS&YOU.",
+        "li": {
+        	"competences": {
+        		"title": "Competencias: ",
+        		"description": "debes evaluarte en todas y marcar la casilla que mejor se ajuste a tu valoración.<br/>Solo podrás marcar como \"no se observa\" una competencia por pilar."
+        	},
+        	"summary": {
+        		"title": "Resumen competencial: ",
+        		"description": "indica las tres competencias que consideras que debes potenciar y en las que consideras que más destacas."
+        	},
+        	"comments": {
+        		"title": "Comentarios: ",
+        		"description": "único apartado que puedes dejar en blanco, pero lo idóneo es disponer de la máxima información."
+        	}
+        },
+        "competences": {
+            "management": "Gestión",
+            "leadership": "Mando"
+        },
+        "pillars": {
+        	"talent": "Talent",
+        	"attitude": "Attitude",
+        	"business": "Business",
+        	"vass": "VASS"
+        }
+    }
+}
